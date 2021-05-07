@@ -1,13 +1,11 @@
-*{
-	background-color: #f8f8f8f8;
-}
-#atras{
-	padding-left: 10%;
-	padding-top: 20px;
+.atras{
+	margin: 2rem 0 0 4rem;
+	text-align: left;
 }
 
-#caja_busqueda {
+.caja_busqueda {
 	width: 100%;
+	border-color: blue;
 }
 
 body {

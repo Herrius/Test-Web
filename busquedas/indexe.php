@@ -7,11 +7,11 @@
 <body>
 
 <section class="principal">
-	<label id="atras">Atrás</label>
+	<div class="atras">Atrás</div>
 	<h1> BÚSQUEDA DE RESULTADOS POR ESTUDIANTES</h1>
 
 	<div class="formulario">
-		<input type="text" name="caja_busqueda" id="caja_busqueda" placeholder="Buscar..."></input>	
+		<input type="text" name="caja_busqueda" id="caja_busqueda" class="caja_busqueda" placeholder="Buscar..."></input>	
 	</div>
 
 	<div id="datos"></div>
