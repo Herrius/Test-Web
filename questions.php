@@ -17,7 +17,7 @@
 
 	<div class="contenedor">
 		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
-		<div class="contenido">
+		<div id="questions" class="contenido">
 			<form >
 				<?php
 				$sql="SELECT idpregunta,enunciado,opcion1,opcion2 FROM tblpreguntas WHERE idpregunta=1";
@@ -25,28 +25,21 @@
 
 				while($mostrar=mysqli_fetch_array($result)){
 				?>
-				<div >
-				   <center>
-					   <h2>
-						   <?php echo $mostrar ['idpregunta']?>.<?php echo $mostrar ['enunciado']?>
-						</h2>
-					</center> 
-				   <br>				   			
-				</div>
-
-				<div>
-				 <center>
-					 <a href="question2.php">
-						 <input type="radio" name="question" value="opcion1"><?php echo $mostrar ['opcion1']?>
-					</a>
-				</center> 	
+					<div >
+						<center>
+							<h2>
+								<?php echo $mostrar ['idpregunta']?>.<?php echo $mostrar ['enunciado']?>
+								</h2>
+							</center> 
+						<br>				   			
+					</div>
+					<div>
+					<div>
+                  <center><a href="question2.php"><input type="button" style="background-color: black;color:white" value="<?php echo $mostrar ['opcion1']?>"></a></center> 
 				   <br>
-				  <center>
-					  <a href="question2.php">
-						  <input type="radio" name="question" value="opcion2"><?php echo $mostrar ['opcion2']?>
-						</a>
-					</center> 
+                   <center><a href="question2.php"><input type="button" style="background-color: black;color:white" value="<?php echo $mostrar ['opcion2']?>"></a></center> 
 				</div>
+					</div>
 				<?php
 			}
 			?>
