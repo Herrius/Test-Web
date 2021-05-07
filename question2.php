@@ -31,9 +31,9 @@
 				</div>
 
 				<div>
-                  <center><a href="question3.php"><input type="button" value="<?php echo $mostrar ['opcion1']?>"></a></center> 
+                  <center><a href="question3.php"><input type="button" style="background-color: black;color:white" value="<?php echo $mostrar ['opcion1']?>"></a></center> 
 				   <br>
-                   <center><a href="question3.php"><input type="button" value="<?php echo $mostrar ['opcion2']?>"></a></center> 
+                   <center><a href="question3.php"><input type="button" style="background-color: black;color:white" value="<?php echo $mostrar ['opcion2']?>"></a></center> 
 				</div>
 				<?php
 			}
