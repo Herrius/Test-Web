@@ -19,7 +19,7 @@
             <h1>BIENVENIDO</h1>
             <p>AprendiTest, es un sistema que brinda un test que ayuda a los estudiantes y docentes al análisis de su
                 tipo de aprendizaje</p>
-            <a href="questions.php" class="button">EMPECEMOS</a>
+            <a href="instrucciones.php" class="button">EMPECEMOS</a>
         </div>
     </main>
 </body>
