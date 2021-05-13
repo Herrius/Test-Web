@@ -1,22 +1,16 @@
 <?php
-	$servername = "localhost";
-    $username = "root";
-  	$password = "";
-  	$dbname = "test";
+	include 'consultas/consultas.php';
+	$conn=mysqli_connect('localhost','root','','test');
 
-	$conn = new mysqli($servername, $username, $password, $dbname);
-      if($conn->connect_error){
-        die("Conexión fallida: ".$conn->connect_error);
-      }
+    $query = "CALL SP_BUSQUEDA_ESTUDIANTES";
 
-    $salida = "";
+	$salida="";
 
-    $query = "SELECT * FROM tblconsulta WHERE codestudiante NOT LIKE '' ORDER By codestudiante LIMIT 25";
-
-    if (isset($_POST['consulta'])) {
+	if (isset($_POST['consulta'])) {
     	$q = $conn->real_escape_string($_POST['consulta']);
-    	$query = "SELECT * FROM tblconsulta WHERE codestudiante LIKE '%$q%' OR nombreest LIKE '%$q%'";
+    	$query = busquedaestudiante($q);
     }
+
 
     $resultado = $conn->query($query);
 

@@ -16,8 +16,8 @@
 		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
 		<div class="contenido">
         <center><h1>DATOS GENERALES</h1></center>
-        <button style="border-radius: 25%;background-color:#bef8ea60" width="299" height="190"><img class="imagen" style="border-radius: 25%;" src="imagenes/eta2.png" width="299" height="190" ></button>
-        <button style="border-radius: 25%;background-color:#bef8ea60" width="299" height="190"><img class="imagen" style="border-radius: 25%;" src="imagenes/aliumnado.jpg" width="299" height="190"></button>
+        <button style="border-radius: 25%;background-color:#bef8ea60" width="299" height="190" ><img class="imagen" style="border-radius: 25%;" src="imagenes/eta2.png" width="299" height="190" ></button>
+        <button style="border-radius: 25%;background-color:#bef8ea60" width="299" height="190" ><img class="imagen" style="border-radius: 25%;" src="imagenes/aliumnado.jpg" width="299" height="190"></button>
 		</div>
 
         <div class="footer" style="width: 800px;height: 50px;">
