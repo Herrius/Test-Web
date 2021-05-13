@@ -1,21 +1,15 @@
 <?php
-	$servername = "localhost";
-    $username = "root";
-  	$password = "";
-  	$dbname = "test";
+	include 'consultas/consultas.php';
 
-	$conn = new mysqli($servername, $username, $password, $dbname);
-      if($conn->connect_error){
-        die("Conexión fallida: ".$conn->connect_error);
-      }
+	$conn=mysqli_connect('localhost','root','','test');
 
     $salida = "";
 
-    $query = "SELECT * FROM tblconsultasalon WHERE NRC NOT LIKE '' ORDER By NRC LIMIT 25";
+    $query = "CALL SP_BUSQUEDA_SALON";
 
     if (isset($_POST['consulta'])) {
     	$q = $conn->real_escape_string($_POST['consulta']);
-    	$query = "SELECT * FROM tblconsultasalon WHERE NRC LIKE '%$q%' OR Nombreasignatura LIKE '%$q%'";
+    	$query = busquedasalon($q);
     }
 
     $resultado = $conn->query($query);
