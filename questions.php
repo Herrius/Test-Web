@@ -1,3 +1,4 @@
+<!---1ro se realiza la conexion a la base de datos--->
 <?php 
 	//include 'conexion/Conexion.php';
 	$conexion=mysqli_connect('localhost','root','','test');
@@ -17,9 +18,14 @@
 <body>
 
 	<div class="contenedor">
-		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
+    
+		<header>
+            <img src="imagenes/UC-Horizontal-White 1.png">
+        </header>
+        <!---contenido del cuestionario/test--->
         <div id="questions" class="contenido">
             <section  accion="guardar" id="form1">
+            <!--- base de datos--->
                 <?php
                 $sql="SELECT idpregunta,enunciado,opcion1,opcion2 FROM tblpreguntas WHERE idpregunta=1";
                 $result=mysqli_query($conexion,$sql);
@@ -39,15 +45,14 @@
                         <center><button style="background-color:black;color:white;height:40px " onclick="ocultarform1();mostrarform2();"><?php echo $mostrar ['opcion1']?></button></center> 
                         <br>
                         <center><button style="background-color:black;color:white;height:40px " onclick="ocultarform1();mostrarform2();"><?php echo $mostrar ['opcion2']?></button></center> 
-                    </div>
-	
-                    
+                    </div>	                    
                 <?php
             }
             ?>
             </section>
 
 			<form accion="guardar" id="form2" style="display:none;">
+            <a href="javascript:history.go(form1)" class="button">Atrás</a>
                 <?php
                 $sql="SELECT idpregunta,enunciado,opcion1,opcion2 FROM tblpreguntas WHERE idpregunta=2";
                 $result=mysqli_query($conexion,$sql);
@@ -74,6 +79,7 @@
             ?>
             </form>
             <form id="form3" style="display: none;">
+            <a href="javascript:history.go(form2)" class="button">Atrás</a>
                 <?php
                 $sql="SELECT idpregunta,enunciado,opcion1,opcion2 FROM tblpreguntas WHERE idpregunta=3";
                 $result=mysqli_query($conexion,$sql);
@@ -100,6 +106,7 @@
             ?>
             </form>
             <form id="form4" style="display: none;">
+            <a href="javascript:history.go(form3)" class="button">Atrás</a>
                 <?php
                 $sql="SELECT idpregunta,enunciado,opcion1,opcion2 FROM tblpreguntas WHERE idpregunta=4";
                 $result=mysqli_query($conexion,$sql);
