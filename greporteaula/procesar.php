@@ -1,5 +1,4 @@
 <?php
-    include 'consultas/consulta.php';
 
     $servername = "localhost";
     $username = "root";
