@@ -17,7 +17,7 @@
         </div>
         <div class="sub_bienvenido bienvenido_texto">
             <h1>BIENVENIDO</h1>
-            <p>AprendiTest, es un sistema que brinda un test que ayuda a los estudiantes y docentes al análisis de su
+            <p>Yachayqay Test, es un sistema que brinda un test que ayuda a los estudiantes y docentes al análisis de su
                 tipo de aprendizaje</p>
             <a href="instrucciones.php" class="button">EMPECEMOS</a>
         </div>

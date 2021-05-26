@@ -22,7 +22,7 @@
 		<header>
             <img src="imagenes/UC-Horizontal-White 1.png">
         </header>
-        <!---contenido del cuestionario/test--->
+        <!---contenido del cuestionario/test codigo de la pregunta--->
         <div id="questions" class="contenido">
             <section  accion="guardar" id="form1">
             <!--- base de datos--->
