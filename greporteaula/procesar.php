@@ -1,4 +1,5 @@
 <?php
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -9,7 +10,7 @@
         die("Conexión fallida: ".$conn->connect_error);
     }
 
-    $NRC=$_POST['NRC'];
+    //$NRC=$_POST['NRC'];
 
     $activo=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(activoreflexivo) AS ACTIVO FROM `tblresultados` WHERE activoreflexivo='Activo'"));
     $reflexivo=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(activoreflexivo) AS REFLEXIVO FROM `tblresultados` WHERE activoreflexivo='Reflexivo'"));
@@ -20,14 +21,32 @@
     $secuencial=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(secuencialglobal) AS SECUENCIAL FROM `tblresultados` WHERE secuencialglobal='Secuencial'"));
     $global=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(secuencialglobal) AS GLOBAL FROM `tblresultados` WHERE secuencialglobal='Global'"));
 
-    $data= array(0=>$activo['ACTIVO'],
-                1=>$reflexivo['REFLEXIVO'],
-                2=>$sensorial['SENSORIAL'],
-                3=>$intuitivo['INTUITIVO'],
-                4=>$visual['VISUAL'],
-                5=>$verbal['VERBAL'],
-                6=>$secuencial['SECUENCIAL'],
-                7=>$global['GLOBAL']);
+    $data= array(
+        array(
+            'estilo'=>'Activo',
+            'nstudiantes'=>$activo['ACTIVO']),
+        array(
+            'estilo'=>'Reflexivo',
+            'nstudiantes'=>$reflexivo['REFLEXIVO']),
+        array(
+            'estilo'=>'Sensorial',
+            'nstudiantes'=>$sensorial['SENSORIAL']),
+        array(
+            'estilo'=>'Intuitivo',
+            'nstudiantes'=>$intuitivo['INTUITIVO']),
+        array(
+            'estilo'=>'Visual',
+            'nstudiantes'=>$visual['VISUAL']),
+        array(
+            'estilo'=>'Verbal',
+            'nstudiantes'=>$verbal['VERBAL']),
+        array(
+            'estilo'=>'Secuencial',
+            'nstudiantes'=>$secuencial['SECUENCIAL']),
+        array(
+            'estilo'=>'Global',
+            'nstudiantes'=>$global['GLOBAL']));
+
 
     echo json_encode($data);
 ?>
