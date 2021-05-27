@@ -17,13 +17,17 @@
 
 
 <body>
-    <main class="container">
-        <div class="sub_bienvenido">
-            <img src="imagenes/bienvenida.png" alt="">
-        </div>
-        <div class="sub_bienvenido bienvenido_texto">
-            <h1>BIENVENIDO</h1>
-            <p>Yachayqay Test, es un sistema que brinda un test que ayuda a los estudiantes y docentes al análisis de su
+
+	<div class="contenedor">
+		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
+		<div class="contenido">
+            <div class="contenedor_imagen">
+                <img class="bienvenida" src="imagenes/bienvenida.png" alt="">
+            </div>
+            <div class="contenedor_texto">
+                <h1>BIENVENIDO</h1>
+                <p>AprendiTest, es un sistema que brinda un test 
+                que ayuda a los estudiantes y docentes al análisis de su
                 tipo de aprendizaje</p>
             </div>
          
