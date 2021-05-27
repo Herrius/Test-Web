@@ -10,12 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link rel="stylesheet" href="estilos/instruccion.css">
+    <link rel="stylesheet" href="estilos/instrucciones.css">
     <title>Yachayqay Test</title>
 
     <style>
 .accordion {
-  background-color: plum; 
+  background-color: #ccc; 
   color: black;
   padding: 18px;
   width: 100%;
@@ -26,7 +26,8 @@
 }
 
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: black;
+  color:white;
 }
 
 
@@ -50,12 +51,7 @@
   transition: max-height 0.2s ease-out;
 }
 
-.button1 {
-      FONT-SIZE: 20px;
-      text-decoration: none;
-      color: White;
 
-      }
 </style>
 
 </head>
@@ -66,11 +62,11 @@
 
 	<div class="contenedor">
 		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
-		<div class="contenido">
+		<div class="instrucciones">
 
 
-    <h2><p>Instrucciones</p></h2>
-          <p>Antes de iniciar con el test.</p>
+      <h2>Instrucciones</h2>
+          <p class="espacio">Antes de iniciar con el test.</p>
           <button class="accordion">Tiempo</button>
           <div class="panel">
           <p>Para este test no existe tiempo limite. Analiza las preguntasy tomate el tiempo que necesites.</p>
@@ -87,11 +83,11 @@
           </div>
 
           
-          <div class="footer">
-          <body><br>
-          <a href="questions.php" class="button1"> <b><i>INICIAR TEST</i></b></a>
-          </body></div>
           
+    </div>
+        <div class="footer">  
+          <a href="fetch.php" class="button1">INICIAR TEST</a>
+          </div>  
 
 <script>
   var acc = document.getElementsByClassName("accordion");
