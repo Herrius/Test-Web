@@ -23,7 +23,7 @@
                <div class="capa">
                    <h3>Datos por Alumnado</h3>
                    <p>Este apartado nos mostrará los datos por alumnado para contrastar y mejorar el aprendizaje </p>
-                   <a href="" style="color: white;text-decoration: none;font-family:fantasy">ver</a>
+                   <a href="Estadisticas_Individuales.php" style="color: white;text-decoration: none;font-family:fantasy">ver</a>
                </div>
            </figure>
         </div>

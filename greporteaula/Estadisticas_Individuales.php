@@ -9,17 +9,17 @@
         <link rel="stylesheet" href="style_procesar.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-        <script type="text/javascript" src="busqueda.js"></script>
+        <script type="text/javascript" src="busqueda_individual.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     
     <body> <br>
         <center><br><a href="javascript:history.go(-1)" style="color: black;text-decoration: none" class="button">Atrás</a></center> 
-       <h1 class="title" style="font-family: 'Lobster', cursive;">RESULTADOS GENERALES POR AULAS</h1>
+       <h1 class="title" style="font-family: 'Lobster', cursive;">RESULTADOS POR ALUMNOS</h1>
         <form>
-        <input type="text" class="form-control" id="caja_busqueda" placeholder="Buscar..." style="width:40%; margin: auto">
+        <input type="text" class="form-control" id="caja_busqueda_individual" placeholder="Buscar..." style="width:40%; margin: auto">
         </form>
-        <section id="busquedasalon">
+        <section id="busquedaindividual">
         </section>
         <div class="container">
             <div class="modal fade" tabindex="-1" id="modal1">
