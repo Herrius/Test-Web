@@ -43,7 +43,7 @@
         function MostrarResultados(NRC){
           $.ajax({
             type:'POST',
-            utl:'procesar.php',
+            url:'procesar.php',
             data: 'NRC='+NRC,
             success: function(data){
               var valores = eval(data);

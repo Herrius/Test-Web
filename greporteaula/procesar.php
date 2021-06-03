@@ -1,14 +1,6 @@
 <?php
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "test";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if($conn->connect_error){
-        die("Conexión fallida: ".$conn->connect_error);
-    }
+    
+    $conn=mysqli_connect ('localhost','root','','test');
 
     //$NRC=$_POST['NRC'];
     $NRC='8555';
@@ -21,6 +13,16 @@
     $verbal=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(visualverbal) AS VERBAL FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM tblconsulta WHERE NRC='$NRC') AND visualverbal='Verbal'"));
     $secuencial=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(secuencialglobal) AS SECUENCIAL FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM tblconsulta WHERE NRC='$NRC') AND secuencialglobal='Secuencial'"));
     $global=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(secuencialglobal) AS GLOBAL FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM tblconsulta WHERE NRC='$NRC') AND secuencialglobal='Global'"));
+
+    //$activo=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_AR('Activo','8555')"));
+    //$reflexivo=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_AR('Reflexivo','8555')"));
+    //$sensorial=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_SI('Sensorial','8555')"));
+    //$intuitivo=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_SI('Intuitivo','8555')"));
+    //$visual=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_VV('Visual','8555')"));
+    //$verbal=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_VV('Verbal','8555')"));
+    //$secuencial=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_SG('Secuencial','8555')"));
+    //$global=mysqli_fetch_array(mysqli_query($conn,"CALL SP_REPORTE_AULA_SG('Global','8555')"));
+
 
     $data= array(
         array(
@@ -47,7 +49,6 @@
         array(
             'estilo'=>'Global',
             'nstudiantes'=>$global['GLOBAL']));
-
 
     echo json_encode($data);
 ?>
