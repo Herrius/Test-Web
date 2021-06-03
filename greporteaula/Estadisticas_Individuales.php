@@ -26,7 +26,7 @@
                 <div class="modal-dialog modal-lg modal-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3>Reporte de Aula</h3>
+                            <h3>Reporte de estudiante</h3>
                             <button class="close" data-dismiss='modal'>&times;</button>
                         </div>
                         <div class="modal-body">
