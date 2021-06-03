@@ -25,6 +25,9 @@
     $enunciado = $registro['enunciado'];
     $opcion1 = $registro['opcion1'];
     $opcion2 = $registro['opcion2'];
+    // los declaro para que el form lo pueda capturar
+    $prev = $pagina - 1;
+    $next = $pagina + 1;
 ?>
     <!DOCTYPE HTML>    
     <html>    
@@ -41,17 +44,19 @@
             <header class="img">
                 <img src="imagenes/UC-Horizontal-White 1.png">
             </header>
-            <div class="conti">
+            <!-- para capturar los datos se necesita de un form con method post -->
+            <form class="conti" method="post" 
+            action="<?php if($next<=44){print 'fetch.php?idpregunta='.$next;}else{print 'retroalimentacion/menu_Resultados.php';}?>" >
 
             <h1> Yachayqay Test </h1>
 
             <!--  Mostramos datos para paginación -->
             <h2><?php echo $enunciado;?></h2>
             <div class="radio-toolbar">
-                <input type=radio id="A" name=question value=1/>
+                <input type=radio id="A" name="question" value='1' />
                 <label for="A"><?php echo $opcion1;?></label>
 
-                <input type=radio id="B" name=question value=2/>
+                <input type=radio id="B" name="question" value='2' />
                 <label for="B"><?php echo $opcion2;?></label> 
             </div>
             <div class="contenedor-siguiente">
@@ -67,8 +72,7 @@
                     $total_pagina = ceil($total_filas / $cantidad_reg); 
 
                     //Calculamos botones anterior / siguiente
-                    $prev = $pagina - 1;
-                    $next = $pagina + 1;
+                   
 
                     //Boton 'Anterior'
                     if ($prev > 0) { 
@@ -82,14 +86,23 @@
 
                     //Boton 'Siguiente'
                     if ($pagina < $total_pagina ) {
-                        echo "<a class='siguiente' href='fetch.php?idpregunta=$next'>Siguiente</a>"; 
+                        echo "<button class='siguiente' type='submit' name='grabar' id='respuestaA'>Siguiente</button>"; 
                     }  
-                    if($pagina==3){
-                        echo "<a class='siguiente' href='retroalimentacion/menu_Resultados.php'>Saltar</a>"; 
+                    if($pagina==44){
+                        echo "<button type='submit' name='grabar' class='siguiente'>Finalizar</button>"; 
                     }
-            
+                    
                 ?>
-            </diV>
+            </form>
+            <!-- es la consulta que se debe llevar a store procedure -->
+            <?php
+                if(isset($_POST['question'])){
+                    $respuesta=intval($_POST['question']);  
+                    $sql="UPDATE tblrespuestas SET `pregunta $pagina`=$respuesta WHERE codestudiante=76927894";
+                    mysqli_query($connect, $sql);
+                    
+                }
+            ?>
             </div>
         </div>
     </div>
