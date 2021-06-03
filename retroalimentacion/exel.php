@@ -21,16 +21,16 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
         $result=mysqli_query($conexion,$sql);
         while ($fila=mysqli_fetch_array($result)){
             ?>
-           <center><h2>Alumno <?php echo $fila[0] ?></h2></center> 
+           <center><h2>Alumno <?php echo $fila[1] ?></h2></center> 
             <tr>
-              <td style="text-align: center;color:blue"><?php echo $fila[1] ?>%</td>  
               <td style="text-align: center;color:blue"><?php echo $fila[2] ?>%</td>  
-              <td style="text-align: center;color:blue"><?php echo $fila[3] ?>%</td>
-              <td style="text-align: center;color:blue"><?php echo $fila[4] ?>%</td> 
-              <td style="text-align: center;color:blue"><?php echo $fila[5] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[3] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[4] ?>%</td>
+              <td style="text-align: center;color:blue"><?php echo $fila[5] ?>%</td> 
               <td style="text-align: center;color:blue"><?php echo $fila[6] ?>%</td>  
-              <td style="text-align: center;color:blue"><?php echo $fila[7] ?>%</td>    
-              <td style="text-align: center;color:blue"><?php echo $fila[8] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[7] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[8] ?>%</td>    
+              <td style="text-align: center;color:blue"><?php echo $fila[9] ?>%</td>  
             </tr>
 
         <?php }?>   
