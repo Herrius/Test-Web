@@ -13,7 +13,7 @@
     </head>
     <body>
         <?php
-            $sql="SELECT * FROM tblresultados";
+            $sql="CALL SP_MOSTRAR_RESULTADO";
             $result=mysqli_query($conexion,$sql);
         
         if($row=mysqli_fetch_array($result)){
