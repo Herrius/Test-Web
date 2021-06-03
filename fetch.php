@@ -91,14 +91,14 @@
                     if($pagina==44){
                         echo "<button type='submit' name='grabar' class='siguiente'>Finalizar</button>"; 
                     }
-                    
                 ?>
             </form>
             <!-- es la consulta que se debe llevar a store procedure -->
             <?php
                 if(isset($_POST['question'])){
-                    $respuesta=intval($_POST['question']);  
-                    $sql="UPDATE tblrespuestas SET `pregunta $pagina`=$respuesta WHERE codestudiante=76927894";
+                    $respuesta=intval($_POST['question']);
+                    $variable=$pagina-1;
+                    $sql="UPDATE tblrespuestas SET `pregunta $variable`=$respuesta WHERE codestudiante=76927894";
                     mysqli_query($connect, $sql);
                     
                 }
