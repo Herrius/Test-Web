@@ -5,8 +5,8 @@
         <title>Yachayqay Test</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body style="background:black "><br><br>
-      <center><h1 style="font-family:'Lobster', cursive;font-size:50px;margin-bottom: 0;color: #fff;">Resultados Generales</h1></center> 
+    <body style="background:#fff "><br><br>
+      <center><h1 style="font-family:'Lobster', cursive;font-size:50px;margin-bottom: 0;color: #000;">Resultados Generales</h1></center> 
         <div class="contenedor">
            <figure >
                <img  src="img/eta2.png" alt="">
