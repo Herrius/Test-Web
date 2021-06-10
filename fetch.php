@@ -80,7 +80,7 @@
                     }
 
                     //Opcional, visualizar el total de paginas, es decir, podrias crear algo similar a  < 1 2 3 4 > .       
-                // for ($i=1; $i<=$total_pagina; $i++) { 
+                    // for ($i=1; $i<=$total_pagina; $i++) { 
                     //  echo "<a href='fetch.php?pagina=$i'>$i</a>"; 
                     //}
 
@@ -98,7 +98,7 @@
                 if(isset($_POST['question'])){
                     $respuesta=intval($_POST['question']);
                     $variable=$pagina-1;
-                    $sql="UPDATE tblrespuestas SET `pregunta $variable`=$respuesta WHERE codestudiante=76927894";
+                    $sql="UPDATE tblrespuestas SET `pregunta $variable`=$respuesta WHERE codestudiante=71444762";
                     mysqli_query($connect, $sql);
                     
                 }

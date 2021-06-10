@@ -21,9 +21,9 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
         $result=mysqli_query($conexion,$sql);
         while ($fila=mysqli_fetch_array($result)){
             ?>
-           <center><h2>Alumno <?php echo $fila[1] ?></h2></center> 
+           <center><h2>Alumno <?php echo $fila[1] ?></h2></center>
             <tr>
-              <td style="text-align: center;color:blue"><?php echo $fila[2] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[2] ?>%</td>
               <td style="text-align: center;color:blue"><?php echo $fila[3] ?>%</td>  
               <td style="text-align: center;color:blue"><?php echo $fila[4] ?>%</td>
               <td style="text-align: center;color:blue"><?php echo $fila[5] ?>%</td> 
@@ -32,6 +32,70 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
               <td style="text-align: center;color:blue"><?php echo $fila[8] ?>%</td>    
               <td style="text-align: center;color:blue"><?php echo $fila[9] ?>%</td>  
             </tr>
+            
 
-        <?php }?>   
+        <?php }?>  
+        
+</table><br><br>
+
+<table>
+           <center><h2>Recomendaciones</h2></center>
+            <tr>
+                <th style="color: blueviolet;">Aprendizaje Activo</th>
+                <th style="color:crimson;">Aprendizaje Reflexivo</th>
+                <th style="color:purple;">Aprendizaje Sensorial</th>
+                <th style="color:tomato;">Aprendizaje Intuitiva</th>
+                <th style="color:royalblue;">Aprendizaje Visual</th>
+                <th style="color:saddlebrown;">Aprendizaje Verbal</th>
+                <th style="color:teal;">Aprendizaje Secuencial</th>
+                <th style="color:olive;">Aprendizaje Global</th>
+            </tr>
+              <td style="color: blueviolet;"><p>Controlar sus impulsos y planificarse.</p></td>
+              <td style="color:crimson;"><p>Actividades de análisis y reflexión</p></td>    
+              <td style="color:purple;"><p>Planificar, horarios y rutinas.</p></td>
+              <td style="color:tomato;"><p>Leer libros de interes</p></td>
+              <td style="color:royalblue;"><p>Identificar colores,sonidos etc.</p></td> 
+              <td style="color:saddlebrown;"><p>Realizar lecciones verbales</p></td> 
+              <td style="color:teal;"><p>Aprender en pequeños pasos</p></td> 
+              <td style="color:olive;"><p>Aprender en grandes saltos</p></td> 
+</table>
+<table>
+              <td style="color: blueviolet;"><p>Procurar estar activo, escribir y hablar.</p></td>
+              <td style="color:crimson;"><p>Entender el porqué de las cosas.</p></td>    
+              <td style="color:purple;"><p>Facilitar un lugar de trabajo tranquilo.</p></td>
+              <td style="color:tomato;"><p>Analizar temas puntuales</p></td>
+              <td style="color:royalblue;"><p>Utilizar simbolos</p></td> 
+              <td style="color:saddlebrown;"><p>Utilizar materiales de lectura</p></td> 
+              <td style="color:teal;"><p>Ser ordenados y lineales</p></td> 
+              <td style="color:olive;"><p>Aprenden con material al azar</p></td> 
+</table>
+<table>
+              <td style="color: blueviolet;"><p>Realizar descansos.</p></td>
+              <td style="color:crimson;"><p>Leer y buscar información.</p></td>    
+              <td style="color:purple;"><p>Realizar ejercicios corporales.</p></td>
+              <td style="color:tomato;"><p>Se crítico con tus análisis</p></td>
+              <td style="color:royalblue;"><p>Se observador. </p></td> 
+              <td style="color:saddlebrown;"><p>Resolver problemas matemáticos</p></td> 
+              <td style="color:teal;"><p>Siguir caminos pequeños pasos lógicos</p></td> 
+              <td style="color:olive;"><p>Visualizan la totalidad del material</p></td> 
+</table>
+<table>
+              <td style="color: blueviolet;"><p>Ensayar y comprobar los resultados.</p></td>
+              <td style="color:crimson;"><p>Practicar y experimentar.</p></td>    
+              <td style="color:purple;"><p>Identificar imágenes, colores y formas</p></td>
+              <td style="color:tomato;"><p>Evalúa tus capacidades</p></td>
+              <td style="color:royalblue;"><p>Material de enseñanza visual</p></td> 
+              <td style="color:saddlebrown;"><p>Proyectos escritos</p></td> 
+              <td style="color:teal;"><p></p></td> 
+              <td style="color:olive;"><p>Resuelven problemas complejos </p></td> 
+</table>
+<table>
+              <td style="color: blueviolet;"><p>Ensayo y error de trabajos.</p></td>
+              <td style="color:crimson;"><p>Realiza proyectos creativos.</p></td>    
+              <td style="color:purple;"><p>Escuchar sonidos relajantes.</p></td>
+              <td style="color:tomato;"><p></p></td>
+              <td style="color:royalblue;"><p>Capaz de memorizar patrones e imágenes</p></td> 
+              <td style="color:saddlebrown;"><p>Proyectos de presentación</p></td> 
+              <td style="color:teal;"><p></p></td> 
+              <td style="color:olive;"><p>Innovadores por naturaleza</p></td> 
 </table>
