@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2021 a las 19:17:29
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 7.4.18
+-- Tiempo de generación: 17-06-2021 a las 01:10:10
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,6 +29,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_ESTUDIANTES` ()  SELECT
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_SALON` ()  SELECT * FROM tblconsultasalon WHERE NRC NOT LIKE '' ORDER By NRC LIMIT 25$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_AR` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(activoreflexivo) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND activoreflexivo=estiloC$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_SG` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(secuencialglobal) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND secuencialglobal=estiloC$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_SI` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(sensorialintuitivo) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND sensorialintuitivo=estiloC$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_VV` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(visualverbal) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND visualverbal=estiloC$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -50,7 +58,8 @@ CREATE TABLE `tblconsulta` (
 INSERT INTO `tblconsulta` (`codestudiante`, `nombreest`, `NRC`) VALUES
 (71444762, 'Delgadillo Lazaro Tania', 8555),
 (72889436, 'Vilca Cumbrera Gabriela', 8555),
-(72969241, 'Espiritu Campos Juan Carlos', 8555),
+(72969241, 'Espiritu Campos Juan Carlos', 8549),
+(72969242, 'Espiritu Campos Alejadro', 8549),
 (76927894, 'Ubaldo Porras Enrique', 8555);
 
 -- --------------------------------------------------------
@@ -141,25 +150,76 @@ INSERT INTO `tblpreguntas` (`idpregunta`, `enunciado`, `opcion1`, `opcion2`, `ti
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tblrespuestas`
+-- Estructura de tabla para la tabla `tblprueba`
 --
 
-CREATE TABLE `tblrespuestas` (
-  `codestudiante` int(8) NOT NULL,
-  `idpregunta` int(2) NOT NULL,
-  `respuesta1` int(1) NOT NULL,
-  `respuesta2` int(1) NOT NULL
+CREATE TABLE `tblprueba` (
+  `id` int(11) NOT NULL,
+  `codigo_estudiante` varchar(8) NOT NULL,
+  `pregunta` int(2) NOT NULL,
+  `respuesta` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tblrespuestas`
+-- Volcado de datos para la tabla `tblprueba`
 --
 
-INSERT INTO `tblrespuestas` (`codestudiante`, `idpregunta`, `respuesta1`, `respuesta2`) VALUES
-(71444762, 1, 0, 1),
-(72889436, 1, 0, 0),
-(72969241, 1, 0, 1),
-(76927894, 1, 1, 0);
+INSERT INTO `tblprueba` (`id`, `codigo_estudiante`, `pregunta`, `respuesta`) VALUES
+(14, '76927894', 1, '2'),
+(15, '76927894', 2, '2'),
+(16, '76927894', 3, '1'),
+(17, '76927894', 4, '2'),
+(18, '76927894', 5, '1'),
+(19, '76927894', 6, '1'),
+(20, '76927894', 7, '2'),
+(21, '76927894', 8, '2'),
+(22, '76927894', 9, '2'),
+(23, '76927894', 10, '2'),
+(24, '76927894', 11, '1'),
+(25, '76927894', 12, '2'),
+(26, '76927894', 13, '2'),
+(27, '76927894', 14, '2'),
+(28, '76927894', 15, '2'),
+(29, '76927894', 16, '2'),
+(31, '76927894', 17, '2'),
+(32, '76927894', 18, '2'),
+(33, '76927894', 19, '2'),
+(34, '76927894', 20, '2'),
+(35, '76927894', 21, '2'),
+(36, '76927894', 22, '2'),
+(37, '76927894', 23, '2'),
+(38, '76927894', 24, '2'),
+(39, '76927894', 25, '2'),
+(40, '76927894', 26, '2'),
+(41, '76927894', 27, '2'),
+(42, '76927894', 28, '2'),
+(43, '76927894', 29, '2'),
+(44, '76927894', 30, '2'),
+(45, '76927894', 31, '2'),
+(46, '76927894', 32, '2'),
+(47, '76927894', 33, '2'),
+(48, '76927894', 34, '2'),
+(49, '76927894', 35, '2'),
+(50, '76927894', 36, '2'),
+(51, '76927894', 37, '2'),
+(52, '76927894', 38, '2'),
+(53, '76927894', 39, '2'),
+(54, '76927894', 40, '2'),
+(55, '76927894', 41, '2'),
+(56, '76927894', 42, '2'),
+(57, '76927894', 43, '2'),
+(58, '76927894', 44, '2'),
+(59, '72747274', 40, '1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblrespuesta`
+--
+
+CREATE TABLE `tblrespuesta` (
+  `ID` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -168,27 +228,24 @@ INSERT INTO `tblrespuestas` (`codestudiante`, `idpregunta`, `respuesta1`, `respu
 --
 
 CREATE TABLE `tblresultados` (
-  `idresultado` int(4) NOT NULL,
+  `idresultado` int(10) NOT NULL,
   `codestudiante` int(8) NOT NULL,
-  `nivelactivo` int(2) NOT NULL,
-  `nivelref` int(2) NOT NULL,
-  `nivelsensorial` int(11) NOT NULL,
-  `nivelintuitivo` int(11) NOT NULL,
-  `nivelvisual` int(11) NOT NULL,
-  `nivelverbal` int(11) NOT NULL,
-  `nivelsecuencial` int(11) NOT NULL,
-  `nivelglobal` int(11) NOT NULL
+  `activoreflexivo` varchar(15) NOT NULL,
+  `nivelactref` int(3) NOT NULL,
+  `sensorialintuitivo` varchar(15) NOT NULL,
+  `nivelsenint` int(3) NOT NULL,
+  `visualverbal` varchar(15) NOT NULL,
+  `nivelvisver` int(3) NOT NULL,
+  `secuencialglobal` varchar(15) NOT NULL,
+  `nivelsecglo` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tblresultados`
 --
 
-INSERT INTO `tblresultados` (`idresultado`, `codestudiante`, `nivelactivo`, `nivelref`, `nivelsensorial`, `nivelintuitivo`, `nivelvisual`, `nivelverbal`, `nivelsecuencial`, `nivelglobal`) VALUES
-(1, 72969241, 15, 85, 10, 90, 20, 80, 10, 90),
-(2, 76927894, 10, 20, 10, 20, 10, 15, 5, 10),
-(3, 72889436, 10, 30, 5, 10, 5, 10, 15, 15),
-(4, 72444762, 10, 10, 20, 10, 15, 15, 15, 5);
+INSERT INTO `tblresultados` (`idresultado`, `codestudiante`, `activoreflexivo`, `nivelactref`, `sensorialintuitivo`, `nivelsenint`, `visualverbal`, `nivelvisver`, `secuencialglobal`, `nivelsecglo`) VALUES
+(12, 76927894, '', 90, '', 90, '', 81, '', 100);
 
 --
 -- Índices para tablas volcadas
@@ -213,27 +270,49 @@ ALTER TABLE `tblpreguntas`
   ADD PRIMARY KEY (`idpregunta`);
 
 --
--- Indices de la tabla `tblrespuestas`
+-- Indices de la tabla `tblprueba`
 --
-ALTER TABLE `tblrespuestas`
-  ADD PRIMARY KEY (`codestudiante`),
-  ADD KEY `idpregunta` (`idpregunta`);
+ALTER TABLE `tblprueba`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tblresultados`
 --
 ALTER TABLE `tblresultados`
-  ADD PRIMARY KEY (`idresultado`);
+  ADD PRIMARY KEY (`idresultado`),
+  ADD KEY `tblresultados_ibfk_1` (`codestudiante`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `tblprueba`
+--
+ALTER TABLE `tblprueba`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+--
+-- AUTO_INCREMENT de la tabla `tblresultados`
+--
+ALTER TABLE `tblresultados`
+  MODIFY `idresultado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `tblrespuestas`
+-- Filtros para la tabla `tblprueba`
 --
-ALTER TABLE `tblrespuestas`
-  ADD CONSTRAINT `tblrespuestas_ibfk_1` FOREIGN KEY (`idpregunta`) REFERENCES `tblpreguntas` (`idpregunta`) ON UPDATE CASCADE;
+ALTER TABLE `tblprueba`
+  ADD CONSTRAINT `tblprueba_ibfk_1` FOREIGN KEY (`pregunta`) REFERENCES `tblpreguntas` (`idpregunta`);
+
+--
+-- Filtros para la tabla `tblresultados`
+--
+ALTER TABLE `tblresultados`
+  ADD CONSTRAINT `tblresultados_ibfk_1` FOREIGN KEY (`codestudiante`) REFERENCES `tblconsulta` (`codestudiante`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
