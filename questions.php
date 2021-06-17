@@ -39,9 +39,16 @@
                         </div>
                         
                         <div id="cuestionario">
-                            <center><input id="respuestaA" type="radio" name="resultado"  style="background-color:black;color:white;height:40px"><?php echo $mostrar ['opcion1']?></input></center> 
+
+
+
+                            <center><input id="respuestaA" type="radio" name="resultado"  
+                            style="background-color:black;color:white;height:40px"><?php 
+                            echo $mostrar ['opcion1']?></input></center> 
                             <br>
-                            <center><input id="respuestaB" type="radio"  name="resultado" style="background-color:black;color:white;height:40px"><?php echo $mostrar ['opcion2']?></input></center> 
+                            <center><input id="respuestaB" type="radio"  name="resultado" 
+                            style="background-color:black;color:white;height:40px"><?php 
+                            echo $mostrar ['opcion2']?></input></center> 
                             <button id="enviar">Siguiente</button>
                         </div>
                         

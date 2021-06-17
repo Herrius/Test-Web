@@ -1,6 +1,8 @@
   
 *,*::after,*::before{
     box-sizing: content-box;
+    font-family: Century Gothic;
+
 }
 .body{
     height: 100vh;
@@ -8,6 +10,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 body{
     height: 100vh;
