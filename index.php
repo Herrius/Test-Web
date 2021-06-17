@@ -22,7 +22,7 @@
 		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
 		<div class="contenido">
             <div class="contenedor_imagen">
-                <img class="bienvenida" src="imagenes/bienvenida.png" alt="">
+                <img class="bienvenida" src="imagenes/bienvenida.jpg" alt="">
             </div>
             <div class="contenedor_texto">
                 <h1>BIENVENIDO</h1>
