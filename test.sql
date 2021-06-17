@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2021 a las 01:10:10
+-- Tiempo de generación: 17-06-2021 a las 16:31:08
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 7.4.20
 
@@ -210,16 +210,6 @@ INSERT INTO `tblprueba` (`id`, `codigo_estudiante`, `pregunta`, `respuesta`) VAL
 (57, '76927894', 43, '2'),
 (58, '76927894', 44, '2'),
 (59, '72747274', 40, '1');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tblrespuesta`
---
-
-CREATE TABLE `tblrespuesta` (
-  `ID` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
