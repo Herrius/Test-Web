@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2021 a las 20:04:46
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.5
+-- Tiempo de generación: 17-06-2021 a las 20:36:39
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,16 +27,15 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `PS_MOSTRAR_RETROALIMENTACION` ()  SELECT *from docente_retroalimentacion$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ACTIVO_REFLECTIVO` ()  SELECT * FROM tblrespuestas WHERE codestudiante='71444762'$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_ESTUDIANTES` ()  SELECT * FROM tblconsulta WHERE codestudiante NOT LIKE '' ORDER By codestudiante LIMIT 25$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_SALON` ()  SELECT * FROM tblconsultasalon WHERE NRC NOT LIKE '' ORDER By NRC LIMIT 25$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_QUESTIONS` ()  SELECT idpregunta, enunciado , opcion1 , opcion2, ROW_NUMBER() OVER(ORDER BY RAND()) FROM tblpreguntas limit 1$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_QUESTIONS` ()  SELECT idpregunta, enunciado , opcion1 , opcion2, ROW_NUMBER() OVER(ORDER BY RAND()) FROM tblpreguntas WHERE idpregunta ORDER BY idpregunta$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_RESULTADO` ()  SELECT codestudiante,nivelactivo,nivelref,nivelsensorial,
-nivelintuitivo,nivelvisual,nivelverbal,nivelsecuencial,
-nivelglobal
-FROM tblresultados WHERE idresultado=3$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_RESULTADO` ()  SELECT * FROM tblresultados ORDER BY idresultado DESC LIMIT 1$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_AR` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(activoreflexivo) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND activoreflexivo=estiloC$$
 
@@ -247,7 +246,7 @@ CREATE TABLE `tblprueba` (
 --
 
 INSERT INTO `tblprueba` (`id`, `codigo_estudiante`, `pregunta`, `respuesta`) VALUES
-(14, '76927894', 1, '2'),
+(14, '76927894', 1, '1'),
 (15, '76927894', 2, '2'),
 (16, '76927894', 3, '1'),
 (17, '76927894', 4, '2'),
@@ -388,8 +387,7 @@ ALTER TABLE `tblpreguntas`
 -- Indices de la tabla `tblprueba`
 --
 ALTER TABLE `tblprueba`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `tblprueba_ibfk_1` (`pregunta`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tblrespuestas`
