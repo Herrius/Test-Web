@@ -40,7 +40,7 @@
 
             <form >
             <?php
-                    $conn=mysqli_connect('localhost','root','','test2');
+                    $conn=mysqli_connect('localhost','root','','test');
                 
                     $query = "CALL PS_MOSTRAR_RETROALIMENTACION"; 
                     
