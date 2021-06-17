@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="estilos/retro_docente2.css">
     <link href="js/validad.js">
 
-    
-	
     <title>Yachayqay Test</title>
 
     <style>
@@ -28,7 +26,6 @@
         text
       }
     h5{
-
        color: #3C3942;
        font-family: Century Gothic, sans-serif;
     }
@@ -37,7 +34,7 @@
 </head>
 <body>
 <div class="contenedor">
-		<header><img src="imagenes/UC-Horizontal-White 1.png"></header>
+		<header><img src="icon/imagenes/UC-Horizontal-White 1.png"></header>
 
         <div class="contenido">
 

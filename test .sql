@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2021 a las 20:04:46
+-- Tiempo de generación: 17-06-2021 a las 21:30:02
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -341,7 +341,8 @@ CREATE TABLE `tblresultados` (
 --
 
 INSERT INTO `tblresultados` (`idresultado`, `codestudiante`, `activoreflexivo`, `nivelactref`, `sensorialintuitivo`, `nivelsenint`, `visualverbal`, `nivelvisver`, `secuencialglobal`, `nivelsecglo`) VALUES
-(12, 76927894, '', 90, '', 90, '', 81, '', 100);
+(12, 76927894, '', 90, '', 90, '', 81, '', 100),
+(13, 76927894, '', 90, '', 90, '', 81, '', 100);
 
 -- --------------------------------------------------------
 
@@ -360,6 +361,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`email`, `password`) VALUES
 ('123@gmail.com', '$2y$10$NgyOpcc8Fkg27mgPUzJ6MeuDg1x0nHG2jl3V2.HJQK2d9ohnu5RFC'),
+('abc@gmail.com', '$2y$10$jVq4VVJslA./YisS0Ln.LuiOTOK1E9/Mj7JMd7j3Nitb3SeHwN1QK'),
 ('gabu@gmail.com', '$2y$10$S66Y4ziKC2WMcsqvdv2mnetbABiUgvq1Eyu9eFgr1KSKHFgB/671e');
 
 --
@@ -425,7 +427,7 @@ ALTER TABLE `tblprueba`
 -- AUTO_INCREMENT de la tabla `tblresultados`
 --
 ALTER TABLE `tblresultados`
-  MODIFY `idresultado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idresultado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas

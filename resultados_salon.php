@@ -27,7 +27,7 @@
 
     <body>
         <div class="contenedor"><br>
-            <center><img src="imagenes/logo_uc.png" width="25%" ></center>
+            <center><img src="icon/imagenes/logo_uc.png" width="25%" ></center>
 
                 <div class="contenido">
 
@@ -46,11 +46,11 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="team-item">
                                 <div class="team-img">
-                                    <img src="imagenes/activo.jpg" width="114%" height="100%" >
+                                <center><img src="icon/matematicas.png" width="50%" height="100%" >
                                 </div>
                                 <div class="team-text">
-                                <b><h2>15%</h2></b>
-                                    <h3>Activo</h3>
+                                <center><b><h2>15%</h2></b>
+                                <center><h3>Activo</h3>
                                 </div>
                         </div>
                     </div>
@@ -58,11 +58,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="imagenes/reflexivo.jpg" width="100%" height="200%">
+                            <center><img  src="icon/cerebro.png" width="50%" height="200%">
                             </div>
                             <div class="team-text">
-                            <b><h2>30%</h2></b>
-                                <h3>Reflexivo</h3>
+                            <center><b><h2>30%</h2></b>
+                            <center><h3>Reflexivo</h3>
                             </div>
                         </div>
                     </div>
@@ -70,11 +70,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="imagenes/sensorial.jpg"width="170%" height="100%" >
+                            <center><img src="icon/lupa.png" width="50%"height="100%" >
                             </div>
                             <div class="team-text">
-                                <h2>10%</h2>
-                                <h3>Sensorial</h3>
+                            <center><h2>10%</h2>
+                                <center><h3>Sensorial</h3>
                             </div>
                         </div>
                     </div>
@@ -82,11 +82,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="imagenes/visual.jpg" width="113%" height="100%" >
+                            <center><img src="icon/telescopio.png" width="50%"height="100%" >
                             </div>
                             <div class="team-text">
-                                <h2>35%</h2>
-                                <h3>Visual</h3>
+                            <center><h2>35%</h2>
+                                <center><h3>Visual</h3>
                             </div>
                         </div>
                     </div>
@@ -102,11 +102,11 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="team-item">
                                 <div class="team-img">
-                                    <img src="imagenes/verball.jpg"width="109%" height="100%" >
+                                <center><img src="icon/libro.png" width="50%" >
                                 </div>
                                 <div class="team-text">
-                                    <h2>20%</h2>
-                                    <h3>Verbal</h3>
+                                <center><h2>20%</h2>
+                                <center><h3>Verbal</h3>
                                 </div>
                             </div>
                         </div>
@@ -114,11 +114,11 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="imagenes/secuencial.jpg" width="123%" height="100%" >
+                        <center> <img src="icon/paleta-de-pintura.png" width="50%" >
                         </div>
                         <div class="team-text">
-                            <h2>15%</h2>
-                            <h3>Secuencial</h3>
+                        <center><h2>15%</h2>
+                        <center><h3>Secuencial</h3>
                         </div>
                     </div>
                 </div>
@@ -126,11 +126,11 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="imagenes/global.jpg" width="100%" height="150%" >
+                        <center><img src="icon/globo.png" width="50%" >
                         </div>
                         <div class="team-text">
-                            <h2>10%</h2>
-                            <h3>Global</h3>
+                        <center><h2>10%</h2>
+                        <center><h3>Global</h3>
                         </div>
                     </div>
                 </div>
@@ -138,11 +138,11 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="imagenes/intuitivo.jpg" width="146%" height="100%" >
+                            <center><img src="icon/matraz.png" width="50%" >
                         </div>
                         <div class="team-text">
-                            <h2>5%</h2>
-                            <h3>Intuitivo</h3> 
+                        <center><h2>5%</h2></center>
+                            <center><h3>Intuitivo</h3> </center>
                         </div>
                     </div>
                 </div>

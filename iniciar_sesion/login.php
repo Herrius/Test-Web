@@ -19,7 +19,7 @@
      
       header("Location: /Test-Web-Main/index.php");
     } else {
-      $message = 'Sorry, those credentials do not match';
+      $message = 'Lo sentimos ingreso mal la contraseña';
     }
   }
 
