@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2021 a las 16:31:08
+-- Tiempo de generación: 17-06-2021 a las 20:36:39
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 7.4.20
 
@@ -25,9 +25,17 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PS_MOSTRAR_RETROALIMENTACION` ()  SELECT *from docente_retroalimentacion$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ACTIVO_REFLECTIVO` ()  SELECT * FROM tblrespuestas WHERE codestudiante='71444762'$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_ESTUDIANTES` ()  SELECT * FROM tblconsulta WHERE codestudiante NOT LIKE '' ORDER By codestudiante LIMIT 25$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_SALON` ()  SELECT * FROM tblconsultasalon WHERE NRC NOT LIKE '' ORDER By NRC LIMIT 25$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_QUESTIONS` ()  SELECT idpregunta, enunciado , opcion1 , opcion2, ROW_NUMBER() OVER(ORDER BY RAND()) FROM tblpreguntas WHERE idpregunta ORDER BY idpregunta$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_RESULTADO` ()  SELECT * FROM tblresultados ORDER BY idresultado DESC LIMIT 1$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_AR` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(activoreflexivo) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND activoreflexivo=estiloC$$
 
@@ -38,6 +46,31 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_SI` (IN `estiloC` V
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_VV` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(visualverbal) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND visualverbal=estiloC$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `docente_retroalimentacion`
+--
+
+CREATE TABLE `docente_retroalimentacion` (
+  `tipo_aprendizaje` text NOT NULL,
+  `retreoalimentacion` varchar(800) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `docente_retroalimentacion`
+--
+
+INSERT INTO `docente_retroalimentacion` (`tipo_aprendizaje`, `retreoalimentacion`) VALUES
+('Visual', 'Sucede cuando uno tiende a pensar en imágenes y a relacionarlas con ideas y conceptos, por ejemplo, cuando se recurre a mapas conceptuales. Este sistema tiende a ser el sistema dominante en la mayoría de personas.'),
+('Sensorial', 'Le permite al lector conocer acerca de la experiencia que trabaja los sistemas sensoriales, facilitando una mejor percepcion , al exponer los sentidos a la luz, sonido, sabores, olores, tacto y movimiento entre otros.'),
+('Activo', 'Alumnos con estilo activo son: novedoso, participativo, lanzado, protagonista, conversador, divertido, líder, innovador, creativo, novedoso, inventor, deseoso de aprender, solucionador de problemas, vividor de la experiencia, vital, generador de ideas, competitivo, voluntarioso, chocante, aventurero y renovador.'),
+('Reflectivo', 'A los reflexivos les gusta considerar las experiencias y observarlas desde diferentes perspectivas. Recogen datos, analizándolos con detenimiento antes de llegar a alguna conclusión. Su filosofía consiste en ser prudente, no dejar piedra sin mover, mirar bien antes de pasar.'),
+('Intutivo', 'Los estudiantes intuitivos prefieren a menudo el descubrir posibilidades y relaciones. · Los estudiantes intuitivos les gusta la innovación y tienen una aversión a la repetición. Para ser eficaz como estudiante y resolver un problema, se necesita poder funcionar de esta manera.'),
+('Verbal', 'Aprendizaje verbal es el proceso por el cual se aprende a responder de forma apropiada a los mensajes verbales. Requiere la emisión de una respuesta hablada o conductual ante un material verbal.'),
+('Global', 'Integral en lo relativo a los contenidos y a los metodos. Se centra en el aprendizaje participativo, en la acción y la adquisición de competencias para que las personas puedan orientarse y llevar una vida responsable.'),
+('Secuencial', 'Es la capacidad de calcular, cuantificar y de llevar a cabo operaciones matemáticas completa, nos permite percibir las relaciones, conexiones  y utilizar el pensamiento abstracto y simbólico. Habilidades de razonamiento secuencial y los patrones de pensamiento inductivo y deductivo.');
 
 -- --------------------------------------------------------
 
@@ -82,6 +115,54 @@ INSERT INTO `tblconsultasalon` (`NRC`, `Nombreasignatura`) VALUES
 (8555, 'TALLER DE PROYECTOS DE INGENIERÍA I '),
 (9588, 'AUDITORÍA DE SISTEMAS '),
 (12906, 'TALLER DE INVESTIGACIÓN I ');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblestudiante`
+--
+
+CREATE TABLE `tblestudiante` (
+  `CodEstudiante` int(8) NOT NULL,
+  `ApellidosNombres` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tblestudiante`
+--
+
+INSERT INTO `tblestudiante` (`CodEstudiante`, `ApellidosNombres`) VALUES
+(72889436, 'VILCA CUMBRERA GABRIELA MAYTE'),
+(78945612, 'ALONSO BECERRA JOSE'),
+(76887472, 'BERNABE CASANOVA FRANCISCO CESAR'),
+(71258465, 'CACERES CONTRERAS MARIA DEL MAR '),
+(74445725, 'CUETO AVELLANEDA RAFAEL'),
+(73225874, 'DIAZ SEGURA MARIA BELEN'),
+(78789578, 'FERNANDEZ LOPEZ MARIA DOLORES'),
+(71458596, 'FERNANDEZ SEGUIN HUGO'),
+(79638547, 'GALVEZ IBARRA ALICIA'),
+(71449783, 'GARCIA FERNANDEZ MARIA MERCEDES'),
+(73558747, 'GODOY GARCIA JOSE EULOGIO '),
+(78457813, 'GONZÁLEZ DÍAZ	ROCIO'),
+(78475871, 'GONZALEZ MANZANO CRISTINA MARIA'),
+(77897423, 'GONZALEZ NAVAS JORGE'),
+(68745230, 'IGLESIAS PASTOR FRANCISCO JAVIER '),
+(66002145, 'LATORRE CUEVAS FRANCISCO JAVIER'),
+(78997400, 'LOPEZ GARCIA CRISTINA LUCIA'),
+(74112500, 'LORENTE MESAS RAFAEL '),
+(78978012, 'MAGAÑA HERNANDEZ LUIS '),
+(78227452, 'MANZANO RAMOS JESUS FRANK'),
+(70289752, 'MARIN SANCHEZ JOSE MARIA '),
+(69875241, 'MEDINA DELGAGO FRANCISCO JAVIER '),
+(63258741, 'MORALES GARCIA JUAN JOSE '),
+(78968712, 'MORALES SANCHEZ BELINDA'),
+(70142587, 'MORALES SANCHEZ MARIA JESUS'),
+(70889710, 'ORTEGA CASERO ANA '),
+(78475970, 'TORTOSA MARTINEZ ALVARO '),
+(70114963, 'VAZQUEZ SANCHEZ JAVIER '),
+(77889544, 'VICENTE CASTILLO VANESA'),
+(71203652, 'SANCHEZ RAMOS JOSE MARIA '),
+(72336589, 'GARCIA CRESPO MARIA DEL CARMEN ');
 
 -- --------------------------------------------------------
 
@@ -165,7 +246,7 @@ CREATE TABLE `tblprueba` (
 --
 
 INSERT INTO `tblprueba` (`id`, `codigo_estudiante`, `pregunta`, `respuesta`) VALUES
-(14, '76927894', 1, '2'),
+(14, '76927894', 1, '1'),
 (15, '76927894', 2, '2'),
 (16, '76927894', 3, '1'),
 (17, '76927894', 4, '2'),
@@ -214,6 +295,30 @@ INSERT INTO `tblprueba` (`id`, `codigo_estudiante`, `pregunta`, `respuesta`) VAL
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tblrespuestas`
+--
+
+CREATE TABLE `tblrespuestas` (
+  `codestudiante` int(8) NOT NULL,
+  `idpregunta` int(2) NOT NULL,
+  `respuesta1` int(1) NOT NULL,
+  `respuesta2` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tblrespuestas`
+--
+
+INSERT INTO `tblrespuestas` (`codestudiante`, `idpregunta`, `respuesta1`, `respuesta2`) VALUES
+(71444762, 1, 0, 1),
+(72889436, 1, 0, 0),
+(72969241, 1, 0, 1),
+(72969242, 1, 0, 1),
+(76927894, 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tblresultados`
 --
 
@@ -236,6 +341,25 @@ CREATE TABLE `tblresultados` (
 
 INSERT INTO `tblresultados` (`idresultado`, `codestudiante`, `activoreflexivo`, `nivelactref`, `sensorialintuitivo`, `nivelsenint`, `visualverbal`, `nivelvisver`, `secuencialglobal`, `nivelsecglo`) VALUES
 (12, 76927894, '', 90, '', 90, '', 81, '', 100);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`email`, `password`) VALUES
+('123@gmail.com', '$2y$10$NgyOpcc8Fkg27mgPUzJ6MeuDg1x0nHG2jl3V2.HJQK2d9ohnu5RFC'),
+('gabu@gmail.com', '$2y$10$S66Y4ziKC2WMcsqvdv2mnetbABiUgvq1Eyu9eFgr1KSKHFgB/671e');
 
 --
 -- Índices para tablas volcadas
@@ -266,11 +390,24 @@ ALTER TABLE `tblprueba`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `tblrespuestas`
+--
+ALTER TABLE `tblrespuestas`
+  ADD PRIMARY KEY (`codestudiante`),
+  ADD KEY `idpregunta` (`idpregunta`);
+
+--
 -- Indices de la tabla `tblresultados`
 --
 ALTER TABLE `tblresultados`
   ADD PRIMARY KEY (`idresultado`),
   ADD KEY `tblresultados_ibfk_1` (`codestudiante`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -297,6 +434,12 @@ ALTER TABLE `tblresultados`
 --
 ALTER TABLE `tblprueba`
   ADD CONSTRAINT `tblprueba_ibfk_1` FOREIGN KEY (`pregunta`) REFERENCES `tblpreguntas` (`idpregunta`);
+
+--
+-- Filtros para la tabla `tblrespuestas`
+--
+ALTER TABLE `tblrespuestas`
+  ADD CONSTRAINT `tblrespuestas_ibfk_1` FOREIGN KEY (`idpregunta`) REFERENCES `tblpreguntas` (`idpregunta`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tblresultados`
