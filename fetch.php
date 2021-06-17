@@ -46,7 +46,7 @@
             </header>
             <!-- para capturar los datos se necesita de un form con method post -->
             <form class="conti" method="post" 
-            action="<?php if($next<=45){print 'fetch.php?idpregunta='.$next;}else{print 'retroalimentacion/menu_Resultados.php';}?>" >
+            action="<?php if($next<=44){print 'fetch.php?idpregunta='.$next;}else{print 'retroalimentacion/menu_Resultados.php';}?>" >
 
             <h1> Yachayqay Test </h1>
 
@@ -109,6 +109,7 @@
                         //envio a la base de datos
                         $respuestas="INSERT INTO tblresultados(`codestudiante`,`nivelactref`,`nivelsenint`,`nivelvisver`,`nivelsecglo`) VALUES('76927894','$reflexivo','$intuitivo','$verbal','$global')";
                         mysqli_query($connect,$respuestas);
+                        
                     }
 
                 ?>
