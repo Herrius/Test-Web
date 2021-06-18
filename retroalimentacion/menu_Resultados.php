@@ -18,14 +18,20 @@
         
         if($row=mysqli_fetch_array($result)){
             $codestudiante=$row['codestudiante'];
-            $activoreflexivo=$row['activoreflexivo'];
+// datos
             $nivelactref=$row['nivelactref'];
-            $sensorialintuitivo=$row['sensorialintuitivo'];
             $nivelsenint=$row['nivelsenint'];
-            $visualverbal=$row['visualverbal'];
             $nivelvisver=$row['nivelvisver'];
-            $secuencialglobal=$row['secuencialglobal'];
             $nivelsecglo=$row['nivelsecglo'];
+
+            $activoreflexivo=100-$nivelactref;
+           
+            $sensorialintuitivo=100-$nivelsenint;
+ 
+            $visualverbal=100- $nivelvisver;
+
+            $secuencialglobal=100-$nivelsecglo;
+ 
             
           ?>         
 
