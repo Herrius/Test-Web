@@ -51,13 +51,13 @@
             <h1> Yachayqay Test </h1>
 
             <!--  Mostramos datos para paginación -->
-            <h2><?php if($next<=44)echo $enunciado;else echo "Gracias";?></h2>
+            <h2><?php if($next<=44)echo $enunciado;else echo "";?></h2>
             <div class="radio-toolbar">
                 <input type=radio id="A" name="question" value='1' />
-                <label for="A"><?php if($next<=44)echo $opcion1;else echo "Gracias";?></label>
+                <label for="A"><?php if($next<=45)echo $opcion1;else echo "Gracias";?></label>
 
                 <input type=radio id="B" name="question" value='2' />
-                <label for="B"><?php if($next<=44)echo $opcion2;else echo "Gracias";?></label> 
+                <label for="B"><?php if($next<=45)echo $opcion2;else echo "Gracias";?></label> 
             </div>
             <div class="contenedor-siguiente">
                 <?php //Creamos botoneras anterior / siguiente
