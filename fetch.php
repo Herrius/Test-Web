@@ -12,6 +12,13 @@
         $pagina=1;
     }
 
+    #echo $_GET['email'];
+    if(!empty($_GET['codigo'])){
+        echo $_GET['codigo'];
+    }
+    $estudiante= mysqli_query($connect,"SELECT `codigo_estudiante` as codigo FROM tblprueba WHERE `codigo_estudiante`='76927894' LIMIT 1");
+    $resultado=mysqli_fetch_array($estudiante);
+    $codigo=$resultado['codigo'];
     //Cantidad de registro a mostrar en paginación.
     $cantidad_reg=1;    
     //Localizacion SQL.
@@ -46,7 +53,7 @@
             </header>
             <!-- para capturar los datos se necesita de un form con method post -->
             <form class="conti" method="post" 
-            action="<?php if($next<=45){print 'fetch.php?idpregunta='.$next;}else{print 'retroalimentacion/menu_Resultados.php';}?>" >
+            action="<?php if($next<=45){print 'fetch.php?idpregunta='.$next.'&codigo='. $codigo;}else{print 'retroalimentacion/menu_Resultados.php';}?>" >
 
             <h1> Yachayqay Test </h1>
 
@@ -92,10 +99,10 @@
                     if($pagina==45){
                         echo "<button class='siguiente' type='submit' name='grabar' id='respuestaA'>Finalizar</button>";
                         //filtrado de datos segun el tipo de estilos de aprendizaje
-                        $tabla=mysqli_query($connect,"SELECT COUNT(A.id) as numero from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Act-Ref' and A.respuesta='2' and A.codigo_estudiante='76927894'");
-                        $tabla2=mysqli_query($connect,"SELECT COUNT(A.id) as numero1 from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Sec-Glo' and A.respuesta='2' and A.codigo_estudiante='76927894'");
-                        $tabla3=mysqli_query($connect,"SELECT COUNT(A.id) as numero2 from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Sen-Int' and A.respuesta='2' and A.codigo_estudiante='76927894'");
-                        $tabla4=mysqli_query($connect,"SELECT COUNT(A.id) as numero3 from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Vis-Ver' and A.respuesta='2' and A.codigo_estudiante='76927894'");
+                        $tabla=mysqli_query($connect,"SELECT COUNT(A.id) as numero from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Act-Ref' and A.respuesta='2' and A.codigo_estudiante= '$codigo'");
+                        $tabla2=mysqli_query($connect,"SELECT COUNT(A.id) as numero1 from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Sec-Glo' and A.respuesta='2' and A.codigo_estudiante= '$codigo'");
+                        $tabla3=mysqli_query($connect,"SELECT COUNT(A.id) as numero2 from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Sen-Int' and A.respuesta='2' and A.codigo_estudiante= '$codigo'");
+                        $tabla4=mysqli_query($connect,"SELECT COUNT(A.id) as numero3 from tblprueba A INNER JOIN tblpreguntas P on A.pregunta=P.idpregunta WHERE P.tipo_pregunta='Vis-Ver' and A.respuesta='2' and A.codigo_estudiante= '$codigo'");
                         //capturar el valor numero del conteo
                         $interprete= mysqli_fetch_array($tabla);
                         $interprete2= mysqli_fetch_array($tabla2);
