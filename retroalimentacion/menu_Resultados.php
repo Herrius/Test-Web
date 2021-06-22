@@ -18,14 +18,20 @@
         
         if($row=mysqli_fetch_array($result)){
             $codestudiante=$row['codestudiante'];
-            $nivelactivo=$row['nivelactivo'];
-            $nivelref=$row['nivelref'];
-            $nivelsensorial=$row['nivelsensorial'];
-            $nivelintuitivo=$row['nivelintuitivo'];
-            $nivelvisual=$row['nivelvisual'];
-            $nivelverbal=$row['nivelverbal'];
-            $nivelsecuencial=$row['nivelsecuencial'];
-            $nivelglobal=$row['nivelglobal'];
+// datos
+            $nivelactref=$row['nivelactref'];
+            $nivelsenint=$row['nivelsenint'];
+            $nivelvisver=$row['nivelvisver'];
+            $nivelsecglo=$row['nivelsecglo'];
+
+            $activoreflexivo=100-$nivelactref;
+           
+            $sensorialintuitivo=100-$nivelsenint;
+ 
+            $visualverbal=100- $nivelvisver;
+
+            $secuencialglobal=100-$nivelsecglo;
+ 
             
           ?>         
 
@@ -39,22 +45,22 @@
                 <br>
                 <div class="divisor">
                     
-                    <a href="Int_Activa.php" class="btn btn--1">Activo <?php echo $nivelactivo;?>%</a>
-                    <a href="Int_Reflexivo.php" class="btn btn--1">Reflexivo <?php echo $nivelref;?>%</a>
+                    <a href="Int_Activa.php" class="btn btn--1">Activo <?php echo $activoreflexivo;?>%</a>
+                    <a href="Int_Reflexivo.php" class="btn btn--1">Reflexivo <?php echo $nivelactref;?>%</a>
                     
                 </div>
                 <div class="divisor">
-                    <a href="Int_Sensorial.php" class="btn btn--1">Sensorial <?php echo $nivelsensorial;?>%</a>
-                    <a href="Int_Intuitiva.php" class="btn btn--1">Intuitivo <?php echo $nivelintuitivo;?>%</a>
+                    <a href="Int_Sensorial.php" class="btn btn--1">Sensorial <?php echo $sensorialintuitivo;?>%</a>
+                    <a href="Int_Intuitiva.php" class="btn btn--1">Intuitivo <?php echo $nivelsenint;?>%</a>
                 </div>
                 <div class="divisor">
-                    <a href="Int_Visual.php" class="btn btn--1">Visual <?php echo $nivelvisual;?>%</a>
-                    <a href="Int_Verbal.php" class="btn btn--1">Verbal <?php echo $nivelverbal;?>%</a>
+                    <a href="Int_Visual.php" class="btn btn--1">Visual <?php echo $visualverbal;?>%</a>
+                    <a href="Int_Verbal.php" class="btn btn--1">Verbal <?php echo $nivelvisver;?>%</a>
                 </div>
                 <div class="divisor">
                     
-                    <a href="Int_Secuencial.php" class="btn btn--1">Secuencial <?php echo $nivelsecuencial;?>%</a>
-                    <a href="Int_Global.php" class="btn btn--1">Global <?php echo $nivelglobal;?>%</a> 
+                    <a href="Int_Secuencial.php" class="btn btn--1">Secuencial <?php echo $secuencialglobal;?>%</a>
+                    <a href="Int_Global.php" class="btn btn--1">Global <?php echo $nivelsecglo;?>%</a> 
                 
                 </div>
 

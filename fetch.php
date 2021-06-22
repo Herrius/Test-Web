@@ -105,7 +105,9 @@
             <h1> Yachayqay Test </h1>
 
             <!--  Mostramos datos para paginación -->
+
             <h2><?php if($next<=45)echo $enunciado;else echo "Gracias";?></h2>
+
             <div class="radio-toolbar">
                 <input type=radio id="A" name="question" value='1' />
                 <label for="A"><?php if($next<=45)echo $opcion1;else echo "Gracias";?></label>
