@@ -28,6 +28,34 @@
     // los declaro para que el form lo pueda capturar
     $prev = $pagina - 1;
     $next = $pagina + 1;
+
+     //declaramos la variable question
+     $question="";
+
+     //validar que existe la varieble question
+     if(isset($_POST['question'])){
+         $question=$_POST['question'];
+     }else{
+         $question="";
+     } 
+                 
+     $campos = array();
+ 
+     //validar que el campo no esté vacio
+     if( $question==""){
+         array_push($campos,"<center style='list-style:none;color:white'>Marque una opcion</center> ");
+         }
+ 
+     if(count($campos) > 0){
+         echo "<div class='error'>";
+                     
+         for($i = 0; $i < count($campos); $i++){
+         echo "<li>".$campos[$i]."</i>";
+         }
+     }else{
+         echo "<div class='correcto'style='color:white'>
+                 <center>Siga Adelante</center>";
+         }
 ?>
     <!DOCTYPE HTML>    
     <html>    
@@ -51,12 +79,12 @@
             <h1> Yachayqay Test </h1>
 
             <!--  Mostramos datos para paginación -->
-            <h2><?php if($next<=44)echo $enunciado;else echo "";?></h2>
+            <h2><?php if($next<=45)echo $enunciado;else echo "Gracias";?></h2>
             <div class="radio-toolbar">
-                <input type=radio id="A" name="question" value='1' />
+                <input type=radio id="A" name="question" value='1' <?php if($question=="1") echo "checked";?>/>
                 <label for="A"><?php if($next<=45)echo $opcion1;else echo "Gracias";?></label>
 
-                <input type=radio id="B" name="question" value='2' />
+                <input type=radio id="B" name="question" value='2' <?php if($question=="2") echo "checked";?>/>
                 <label for="B"><?php if($next<=45)echo $opcion2;else echo "Gracias";?></label> 
             </div>
             <div class="contenedor-siguiente">
