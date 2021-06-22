@@ -16,8 +16,8 @@
     $message = ' ';
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
-     
-      header("Location: /Test-Web-Main/index.php");
+      $email=$_POST['email'];
+      header("Location: /Test/fetch.php?idpregunta=1&codigo=$email");
     } else {
       $message = 'Lo sentimos ingreso mal la contraseña';
     }
@@ -44,7 +44,7 @@
     <span>or <a href="signup.php">SignUp</a></span>
 
     <form action="login.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
+      <input name="email" type="text" placeholder="Enter your email"> 
       <input name="password" type="password" placeholder="Enter your Password">
       <input type="submit" value="Submit">
     </form>
