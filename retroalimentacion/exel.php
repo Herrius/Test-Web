@@ -17,24 +17,22 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
     </tr>
     <?php
         $conexion=mysqli_connect ('localhost','root','','test');
-        $sql="CALL SP_MOSTRAR_RESULTADO";
+        $resultado=$_GET['codigo'];
+        $sql="CALL SP_MOSTRAR_RESULTADO('$resultado')";
         $result=mysqli_query($conexion,$sql);
         while ($fila=mysqli_fetch_array($result)){
-
-            
-
 
             $nivelactref=$fila['nivelactref'];
             $nivelsenint=$fila['nivelsenint'];
             $nivelvisver=$fila['nivelvisver'];
             $nivelsecglo=$fila['nivelsecglo'];
 
-            $activoreflexivo=100-$nivelactref;
-           
-            $sensorialintuitivo=100-$nivelsenint;
- 
-            $visualverbal=100- $nivelvisver;
+            $activoreflexivo=100-$nivelactref; 
 
+            $sensorialintuitivo=100-$nivelsenint;
+
+            $visualverbal=100- $nivelvisver;
+            
             $secuencialglobal=100-$nivelsecglo;
 
 
@@ -42,20 +40,19 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
            <center><h2>Alumno <?php echo $fila[1] ?></h2></center>
             <tr>
               <td style="text-align: center;color:blue"><?php echo $activoreflexivo;?>%</td>
-              <td style="text-align: center;color:blue"><?php echo $fila[3] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[2] ?>%</td>  
               <td style="text-align: center;color:blue"><?php echo $sensorialintuitivo;?>%</td>
-              <td style="text-align: center;color:blue"><?php echo $fila[5] ?>%</td> 
+              <td style="text-align: center;color:blue"><?php echo $fila[3] ?>%</td> 
               <td style="text-align: center;color:blue"><?php echo $visualverbal;?>%</td>  
-              <td style="text-align: center;color:blue"><?php echo $fila[7] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[4] ?>%</td>  
               <td style="text-align: center;color:blue"><?php echo $secuencialglobal;?>%</td>    
-              <td style="text-align: center;color:blue"><?php echo $fila[9] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $fila[5] ?>%</td>  
             </tr>
             
 
         <?php }?>  
         
-</table><br><br>
-
+</table>
 <table>
            <center><h2>Recomendaciones</h2></center>
             <tr>
@@ -117,3 +114,6 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
               <td style="color:teal;"><p></p></td> 
               <td style="color:olive;"><p>Innovadores por naturaleza</p></td> 
 </table>
+
+
+
