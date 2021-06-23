@@ -93,13 +93,16 @@
     <link rel="stylesheet" href="estilos/preguntas.css">
     <title>Yachayqay Test</title>
     <script>
-        function activar(){
+        function desactivar(){
             if(!A.checked && !B.checked){
                 alert('MARQUE UNA OPCIÓN PARA CONTINUAR');
-                respuestaA.disabled=true
-            }else{
-                respuestaA.disabled=false
-            }                        
+                respuestaA.disabled=true;
+            }              
+        }
+        function activar(){
+            if(A.checked || B.checked){
+                respuestaA.disabled=false;
+            }
         }        
     </script>     
     </head>    
@@ -120,10 +123,10 @@
             <h2><?php if($next<=45)echo $enunciado;else echo "Gracias";?></h2>
 
             <div class="radio-toolbar">
-                <input type=radio id="A" name="question" value='1'/>
+                <input type=radio id="A" name="question" value='1' onclick='return activar();'/>
                 <label for="A"><?php if($next<=45)echo $opcion1;else echo "Gracias";?></label>
 
-                <input type=radio id="B" name="question" value='2'/>
+                <input type=radio id="B" name="question" value='2' onclick='return activar();'/>
                 <label for="B"><?php if($next<=45)echo $opcion2;else echo "Gracias";?></label> 
             </div>
             <div class="contenedor-siguiente">
@@ -153,7 +156,7 @@
 
                     //Boton 'Siguiente'
                     if ($pagina <= $total_pagina ) {
-                        echo "<button class='siguiente' type='submit' name='grabar' id='respuestaA' onclick='return activar();'>Siguiente</button>"; 
+                        echo "<button class='siguiente' type='submit' name='grabar' id='respuestaA' onclick='return desactivar();'>Siguiente</button>"; 
                     }  
                     //Pagina final donde se ejecuta el proceso de guardar los resultados
                     if($pagina==45){
