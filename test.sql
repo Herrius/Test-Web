@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2021 a las 21:48:10
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.5
+-- Tiempo de generación: 23-06-2021 a las 04:06:10
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,16 +27,15 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `PS_MOSTRAR_RETROALIMENTACION` ()  SELECT *from docente_retroalimentacion$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ACTIVO_REFLECTIVO` ()  SELECT * FROM tblrespuestas WHERE codestudiante='71444762'$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_ESTUDIANTES` ()  SELECT * FROM tblconsulta WHERE codestudiante NOT LIKE '' ORDER By codestudiante LIMIT 25$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_BUSQUEDA_SALON` ()  SELECT * FROM tblconsultasalon WHERE NRC NOT LIKE '' ORDER By NRC LIMIT 25$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_QUESTIONS` ()  SELECT idpregunta, enunciado , opcion1 , opcion2, ROW_NUMBER() OVER(ORDER BY RAND()) FROM tblpreguntas limit 1$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_QUESTIONS` ()  SELECT idpregunta, enunciado , opcion1 , opcion2, ROW_NUMBER() OVER(ORDER BY RAND()) FROM tblpreguntas WHERE idpregunta ORDER BY idpregunta$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_RESULTADO` ()  SELECT codestudiante,nivelactivo,nivelref,nivelsensorial,
-nivelintuitivo,nivelvisual,nivelverbal,nivelsecuencial,
-nivelglobal
-FROM tblresultados WHERE idresultado=3$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_MOSTRAR_RESULTADO` (IN `codigo` VARCHAR(27))  SELECT * FROM tblresultados WHERE `codestudiante`=codigo LIMIT 1$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REPORTE_AULA_AR` (IN `estiloC` VARCHAR(15), IN `NRCC` INT(6))  SELECT COUNT(activoreflexivo) AS NESTUDIANTES FROM `tblresultados` WHERE codestudiante IN(SELECT codestudiante FROM `tblconsulta` WHERE NRC=NRCC) AND activoreflexivo=estiloC$$
 
@@ -237,7 +236,7 @@ INSERT INTO `tblpreguntas` (`idpregunta`, `enunciado`, `opcion1`, `opcion2`, `ti
 
 CREATE TABLE `tblprueba` (
   `id` int(11) NOT NULL,
-  `codigo_estudiante` varchar(8) NOT NULL,
+  `codigo_estudiante` varchar(27) NOT NULL,
   `pregunta` int(2) NOT NULL,
   `respuesta` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -247,51 +246,138 @@ CREATE TABLE `tblprueba` (
 --
 
 INSERT INTO `tblprueba` (`id`, `codigo_estudiante`, `pregunta`, `respuesta`) VALUES
-(14, '76927894', 1, '2'),
-(15, '76927894', 2, '2'),
-(16, '76927894', 3, '1'),
-(17, '76927894', 4, '2'),
-(18, '76927894', 5, '1'),
-(19, '76927894', 6, '1'),
-(20, '76927894', 7, '2'),
-(21, '76927894', 8, '2'),
-(22, '76927894', 9, '2'),
-(23, '76927894', 10, '2'),
-(24, '76927894', 11, '1'),
-(25, '76927894', 12, '2'),
-(26, '76927894', 13, '2'),
-(27, '76927894', 14, '2'),
-(28, '76927894', 15, '2'),
-(29, '76927894', 16, '2'),
-(31, '76927894', 17, '2'),
-(32, '76927894', 18, '2'),
-(33, '76927894', 19, '2'),
-(34, '76927894', 20, '2'),
-(35, '76927894', 21, '2'),
-(36, '76927894', 22, '2'),
-(37, '76927894', 23, '2'),
-(38, '76927894', 24, '2'),
-(39, '76927894', 25, '2'),
-(40, '76927894', 26, '2'),
-(41, '76927894', 27, '2'),
-(42, '76927894', 28, '2'),
-(43, '76927894', 29, '2'),
-(44, '76927894', 30, '2'),
-(45, '76927894', 31, '2'),
-(46, '76927894', 32, '2'),
-(47, '76927894', 33, '2'),
-(48, '76927894', 34, '2'),
-(49, '76927894', 35, '2'),
-(50, '76927894', 36, '2'),
-(51, '76927894', 37, '2'),
-(52, '76927894', 38, '2'),
-(53, '76927894', 39, '2'),
-(54, '76927894', 40, '2'),
-(55, '76927894', 41, '2'),
-(56, '76927894', 42, '2'),
-(57, '76927894', 43, '2'),
-(58, '76927894', 44, '2'),
-(59, '72747274', 40, '1');
+(1, '', 1, '2'),
+(2, '', 2, ''),
+(3, '', 3, ''),
+(4, '', 4, ''),
+(5, '', 5, ''),
+(6, '', 6, ''),
+(7, '', 7, ''),
+(8, '', 8, ''),
+(9, '', 9, ''),
+(10, '', 10, ''),
+(11, '', 11, ''),
+(12, '', 12, ''),
+(13, '', 13, ''),
+(14, '', 14, ''),
+(15, '', 15, ''),
+(16, '', 16, ''),
+(17, '', 17, ''),
+(18, '', 18, ''),
+(19, '', 19, ''),
+(20, '', 20, ''),
+(21, '', 21, ''),
+(22, '', 22, ''),
+(23, '', 23, ''),
+(24, '', 24, ''),
+(25, '', 25, ''),
+(26, '', 26, ''),
+(27, '', 27, ''),
+(28, '', 28, ''),
+(29, '', 29, ''),
+(30, '', 30, ''),
+(31, '', 31, ''),
+(32, '', 32, ''),
+(33, '', 33, ''),
+(34, '', 34, ''),
+(35, '', 35, ''),
+(36, '', 36, ''),
+(37, '', 37, ''),
+(38, '', 38, ''),
+(39, '', 39, ''),
+(40, '', 40, ''),
+(41, '', 41, ''),
+(42, '', 42, ''),
+(43, '', 43, ''),
+(44, '', 44, ''),
+(45, '76927894@continental.edu.pe', 1, '2'),
+(46, '76927894@continental.edu.pe', 2, '1'),
+(47, '76927894@continental.edu.pe', 3, '1'),
+(48, '76927894@continental.edu.pe', 4, '2'),
+(49, '76927894@continental.edu.pe', 5, '1'),
+(50, '76927894@continental.edu.pe', 6, '2'),
+(51, '76927894@continental.edu.pe', 7, '1'),
+(52, '76927894@continental.edu.pe', 8, '1'),
+(53, '76927894@continental.edu.pe', 9, '1'),
+(54, '76927894@continental.edu.pe', 10, '1'),
+(55, '76927894@continental.edu.pe', 11, '1'),
+(56, '76927894@continental.edu.pe', 12, '2'),
+(57, '76927894@continental.edu.pe', 13, '2'),
+(58, '76927894@continental.edu.pe', 14, '2'),
+(59, '76927894@continental.edu.pe', 15, '1'),
+(60, '76927894@continental.edu.pe', 16, '2'),
+(61, '76927894@continental.edu.pe', 17, '2'),
+(62, '76927894@continental.edu.pe', 18, '1'),
+(63, '76927894@continental.edu.pe', 19, '2'),
+(64, '76927894@continental.edu.pe', 20, '2'),
+(65, '76927894@continental.edu.pe', 21, '1'),
+(66, '76927894@continental.edu.pe', 22, '1'),
+(67, '76927894@continental.edu.pe', 23, '2'),
+(68, '76927894@continental.edu.pe', 24, '2'),
+(69, '76927894@continental.edu.pe', 25, '1'),
+(70, '76927894@continental.edu.pe', 26, '1'),
+(71, '76927894@continental.edu.pe', 27, '2'),
+(72, '76927894@continental.edu.pe', 28, '2'),
+(73, '76927894@continental.edu.pe', 29, '1'),
+(74, '76927894@continental.edu.pe', 30, '1'),
+(75, '76927894@continental.edu.pe', 31, '2'),
+(76, '76927894@continental.edu.pe', 32, '2'),
+(77, '76927894@continental.edu.pe', 33, '1'),
+(78, '76927894@continental.edu.pe', 34, '1'),
+(79, '76927894@continental.edu.pe', 35, '2'),
+(80, '76927894@continental.edu.pe', 36, '2'),
+(81, '76927894@continental.edu.pe', 37, '1'),
+(82, '76927894@continental.edu.pe', 38, '1'),
+(83, '76927894@continental.edu.pe', 39, '2'),
+(84, '76927894@continental.edu.pe', 40, '2'),
+(85, '76927894@continental.edu.pe', 41, '1'),
+(86, '76927894@continental.edu.pe', 42, '2'),
+(87, '76927894@continental.edu.pe', 43, '1'),
+(88, '76927894@continental.edu.pe', 44, '2'),
+(89, 'asd@hot.com', 1, '1'),
+(90, 'asd@hot.com', 2, '1'),
+(91, 'asd@hot.com', 3, ''),
+(92, 'asd@hot.com', 4, ''),
+(93, 'asd@hot.com', 5, '2'),
+(94, 'asd@hot.com', 6, ''),
+(95, 'asd@hot.com', 7, ''),
+(96, 'asd@hot.com', 8, ''),
+(97, 'asd@hot.com', 9, ''),
+(98, 'asd@hot.com', 10, ''),
+(99, 'asd@hot.com', 11, ''),
+(100, 'asd@hot.com', 12, ''),
+(101, 'asd@hot.com', 13, ''),
+(102, 'asd@hot.com', 14, ''),
+(103, 'asd@hot.com', 15, ''),
+(104, 'asd@hot.com', 16, ''),
+(105, 'asd@hot.com', 17, ''),
+(106, 'asd@hot.com', 18, ''),
+(107, 'asd@hot.com', 19, ''),
+(108, 'asd@hot.com', 20, ''),
+(109, 'asd@hot.com', 21, ''),
+(110, 'asd@hot.com', 22, ''),
+(111, 'asd@hot.com', 23, ''),
+(112, 'asd@hot.com', 24, ''),
+(113, 'asd@hot.com', 25, ''),
+(114, 'asd@hot.com', 26, ''),
+(115, 'asd@hot.com', 27, ''),
+(116, 'asd@hot.com', 28, ''),
+(117, 'asd@hot.com', 29, ''),
+(118, 'asd@hot.com', 30, ''),
+(119, 'asd@hot.com', 31, ''),
+(120, 'asd@hot.com', 32, ''),
+(121, 'asd@hot.com', 33, ''),
+(122, 'asd@hot.com', 34, ''),
+(123, 'asd@hot.com', 35, ''),
+(124, 'asd@hot.com', 36, ''),
+(125, 'asd@hot.com', 37, ''),
+(126, 'asd@hot.com', 38, ''),
+(127, 'asd@hot.com', 39, ''),
+(128, 'asd@hot.com', 40, ''),
+(129, 'asd@hot.com', 41, ''),
+(130, 'asd@hot.com', 42, ''),
+(131, 'asd@hot.com', 43, ''),
+(132, 'asd@hot.com', 44, '');
 
 -- --------------------------------------------------------
 
@@ -325,14 +411,10 @@ INSERT INTO `tblrespuestas` (`codestudiante`, `idpregunta`, `respuesta1`, `respu
 
 CREATE TABLE `tblresultados` (
   `idresultado` int(10) NOT NULL,
-  `codestudiante` int(8) NOT NULL,
-  `activoreflexivo` varchar(15) NOT NULL,
+  `codestudiante` varchar(27) NOT NULL,
   `nivelactref` int(3) NOT NULL,
-  `sensorialintuitivo` varchar(15) NOT NULL,
   `nivelsenint` int(3) NOT NULL,
-  `visualverbal` varchar(15) NOT NULL,
   `nivelvisver` int(3) NOT NULL,
-  `secuencialglobal` varchar(15) NOT NULL,
   `nivelsecglo` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -340,9 +422,14 @@ CREATE TABLE `tblresultados` (
 -- Volcado de datos para la tabla `tblresultados`
 --
 
-INSERT INTO `tblresultados` (`idresultado`, `codestudiante`, `activoreflexivo`, `nivelactref`, `sensorialintuitivo`, `nivelsenint`, `visualverbal`, `nivelvisver`, `secuencialglobal`, `nivelsecglo`) VALUES
-(12, 76927894, '', 90, '', 90, '', 81, '', 100),
-(13, 76927894, '', 90, '', 90, '', 81, '', 100);
+INSERT INTO `tblresultados` (`idresultado`, `codestudiante`, `nivelactref`, `nivelsenint`, `nivelvisver`, `nivelsecglo`) VALUES
+(30, '76927894@continental.edu.pe', 27, 36, 54, 81),
+(31, '76927894@continental.edu.pe', 27, 36, 54, 90),
+(32, '76927894', 0, 0, 0, 0),
+(33, '76927894', 0, 0, 0, 0),
+(51, '76927894@continental.edu.pe', 27, 36, 54, 90),
+(52, '76927894@continental.edu.pe', 27, 36, 54, 90),
+(53, '76927894@continental.edu.pe', 27, 36, 54, 90);
 
 -- --------------------------------------------------------
 
@@ -361,8 +448,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`email`, `password`) VALUES
 ('123@gmail.com', '$2y$10$NgyOpcc8Fkg27mgPUzJ6MeuDg1x0nHG2jl3V2.HJQK2d9ohnu5RFC'),
-('abc@gmail.com', '$2y$10$jVq4VVJslA./YisS0Ln.LuiOTOK1E9/Mj7JMd7j3Nitb3SeHwN1QK'),
-('gabu@gmail.com', '$2y$10$S66Y4ziKC2WMcsqvdv2mnetbABiUgvq1Eyu9eFgr1KSKHFgB/671e');
+('76927894', '$2y$10$8Krv36SaupkWxWqBsyga7enNnk5tyk7LTfx6IE8i84pgJsnnHnLYS'),
+('76927894@continental.edu.pe', '$2y$10$TekCl2xVIdBP/QsF5xxbj.9SqaqV47zqZXe5zA.uymoEOnhAuV0p6'),
+('asd@hot.com', '$2y$10$ha/UmCWOaq4IHu2OAEEcKunvGBG.gEDx3VkZPL37fgljO3ON23edW'),
+('gabu@gmail.com', '$2y$10$S66Y4ziKC2WMcsqvdv2mnetbABiUgvq1Eyu9eFgr1KSKHFgB/671e'),
+('pedro@gmail.com', '$2y$10$GrsfwtVyHoMqIDrHJXrXRuq07LVpkSRPTEk21R6KiTrE148Jm6FQe');
 
 --
 -- Índices para tablas volcadas
@@ -390,8 +480,7 @@ ALTER TABLE `tblpreguntas`
 -- Indices de la tabla `tblprueba`
 --
 ALTER TABLE `tblprueba`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `tblprueba_ibfk_1` (`pregunta`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tblrespuestas`
@@ -405,7 +494,7 @@ ALTER TABLE `tblrespuestas`
 --
 ALTER TABLE `tblresultados`
   ADD PRIMARY KEY (`idresultado`),
-  ADD KEY `tblresultados_ibfk_1` (`codestudiante`);
+  ADD KEY `codestudiante` (`codestudiante`);
 
 --
 -- Indices de la tabla `users`
@@ -421,13 +510,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `tblprueba`
 --
 ALTER TABLE `tblprueba`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT de la tabla `tblresultados`
 --
 ALTER TABLE `tblresultados`
-  MODIFY `idresultado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idresultado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Restricciones para tablas volcadas
@@ -449,7 +538,7 @@ ALTER TABLE `tblrespuestas`
 -- Filtros para la tabla `tblresultados`
 --
 ALTER TABLE `tblresultados`
-  ADD CONSTRAINT `tblresultados_ibfk_1` FOREIGN KEY (`codestudiante`) REFERENCES `tblconsulta` (`codestudiante`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `tblresultados_ibfk_1` FOREIGN KEY (`codestudiante`) REFERENCES `users` (`email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
