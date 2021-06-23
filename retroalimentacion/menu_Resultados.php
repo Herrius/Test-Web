@@ -13,7 +13,8 @@
     </head>
     <body>
         <?php
-            $sql="CALL SP_MOSTRAR_RESULTADO";
+            $resultado=$_GET['codigo'];
+            $sql="CALL SP_MOSTRAR_RESULTADO('$resultado')";   
             $result=mysqli_query($conexion,$sql);
         
         if($row=mysqli_fetch_array($result)){
