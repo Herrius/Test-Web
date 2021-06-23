@@ -83,33 +83,6 @@
     $prev = $pagina - 1;
     $next = $pagina + 1;
 
-     //declaramos la variable question
-     $question="";
-
-     //validar que existe la varieble question
-     if(isset($_POST['question'])){
-         $question=$_POST['question'];
-     }else{
-         $question="";
-     } 
-                 
-     $campos = array();
- 
-     //validar que el campo no esté vacio
-     if( $question==""){
-         array_push($campos,"<center style='list-style:none;color:white'>Marque una opcion</center> ");
-         }
- 
-     if(count($campos) > 0){
-         echo "<div class='error'>";
-                     
-         for($i = 0; $i < count($campos); $i++){
-         echo "<li>".$campos[$i]."</i>";
-         }
-     }else{
-         echo "<div class='correcto'style='color:white'>
-                 <center>Siga Adelante</center>";
-         }
 ?>
     <!DOCTYPE HTML>    
     <html>    
@@ -118,7 +91,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="estilos/preguntas.css">
-    <title>Yachayqay Test</title>    
+    <title>Yachayqay Test</title>
+    <script>
+        function activar(){
+            if(!A.checked && !B.checked){
+                alert('MARQUE UNA OPCIÓN PARA CONTINUAR');
+                respuestaA.disabled=true
+            }else{
+                respuestaA.disabled=false
+            }                        
+        }        
+    </script>     
     </head>    
     <body >
     <div class="body">
@@ -137,10 +120,10 @@
             <h2><?php if($next<=45)echo $enunciado;else echo "Gracias";?></h2>
 
             <div class="radio-toolbar">
-                <input type=radio id="A" name="question" value='1' <?php if($question=="1") echo "checked";?>/>
+                <input type=radio id="A" name="question" value='1'/>
                 <label for="A"><?php if($next<=45)echo $opcion1;else echo "Gracias";?></label>
 
-                <input type=radio id="B" name="question" value='2' <?php if($question=="2") echo "checked";?>/>
+                <input type=radio id="B" name="question" value='2'/>
                 <label for="B"><?php if($next<=45)echo $opcion2;else echo "Gracias";?></label> 
             </div>
             <div class="contenedor-siguiente">
@@ -170,7 +153,7 @@
 
                     //Boton 'Siguiente'
                     if ($pagina <= $total_pagina ) {
-                        echo "<button class='siguiente' type='submit' name='grabar' id='respuestaA'>Siguiente</button>"; 
+                        echo "<button class='siguiente' type='submit' name='grabar' id='respuestaA' onclick='return activar();'>Siguiente</button>"; 
                     }  
                     //Pagina final donde se ejecuta el proceso de guardar los resultados
                     if($pagina==45){
