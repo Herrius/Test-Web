@@ -1,3 +1,4 @@
+<?php error_reporting(0); ?>
 <?php
 header("Content-Type: application/xls");
 header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
