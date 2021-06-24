@@ -86,7 +86,7 @@
           
     </div>
         <div class="footer">  
-          <a href="fetch.php" class="button1">INICIAR TEST</a>
+          <a href="iniciar_sesion/index.php" class="button1">INICIAR TEST</a>
           </div>  
 
 <script>

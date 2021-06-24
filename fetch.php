@@ -72,10 +72,11 @@
     $ubicacion = ($pagina-1) * $cantidad_reg;
 
     //Sentencia SQL, mostramos consejo.
-    $preguntas= mysqli_query($connect,"SELECT enunciado,opcion1,opcion2 FROM tblpreguntas ORDER BY idpregunta LIMIT $ubicacion,$cantidad_reg");
+    $preguntas= mysqli_query($connect,"SELECT idpregunta,enunciado,opcion1,opcion2 FROM tblpreguntas ORDER BY idpregunta LIMIT $ubicacion,$cantidad_reg");
     $registro= mysqli_fetch_array($preguntas);
 
-    //Obtenemos datos a mostrar para la páginación.    
+    //Obtenemos datos a mostrar para la páginación.   
+    $idpregunta = $registro['idpregunta'];   
     $enunciado = $registro['enunciado'];
     $opcion1 = $registro['opcion1'];
     $opcion2 = $registro['opcion2'];
@@ -92,6 +93,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="estilos/preguntas.css">
     <title>Yachayqay Test</title>
+
+   
     <script>
         function desactivar(){
             if(!A.checked && !B.checked){
@@ -104,6 +107,7 @@
                 respuestaA.disabled=false;
             }
         }        
+    
     </script>     
     </head>    
     <body >
@@ -115,9 +119,9 @@
             <!-- para capturar los datos se necesita de un form con method post -->
             <form class="conti" method="post" 
             action="<?php if($next<=45){print 'fetch.php?idpregunta='.$next.'&codigo='. $codigo;}else{print 'retroalimentacion/menu_Resultados.php?codigo='.$codigo;}?>" >
-
+            <h3 align="right" style="color:grey" >Pregunta&nbsp;<?php echo  $idpregunta;?> de 44&nbsp;&nbsp;</h3>
             <h1> Yachayqay Test </h1>
-
+            
             <!--  Mostramos datos para paginación -->
 
             <h2><?php if($next<=45)echo $enunciado;else echo "Gracias";?></h2>
