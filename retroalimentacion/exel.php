@@ -6,6 +6,7 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
 <table>
    <center><h1>Buen día estimado participante</h1></center>
    <center><i><p>El resultado de sus estilos de aprendizaje es el siguiente:</p></i></center>
+    <tr></tr>
     <tr>
         <th>Aprendizaje Activo</th>
         <th>Aprendizaje Reflexivo</th>
@@ -16,6 +17,7 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
         <th>Aprendizaje Secuencial</th>
         <th>Aprendizaje Global</th>
     </tr>
+    
     <?php
         $conexion=mysqli_connect ('localhost','root','','test');
         $resultado=$_GET['codigo'];
@@ -38,7 +40,9 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
 
 
             ?>
-           <center><h2>Alumno <?php echo $fila[1] ?></h2></center>
+           
+           <center><h2>Alumno <?php echo $fila[1] ?><br><br></h2></center>
+            <tr></tr>
             <tr>
               <td style="text-align: center;color:blue"><?php echo $activoreflexivo;?>%</td>
               <td style="text-align: center;color:blue"><?php echo $fila[2] ?>%</td>  
@@ -53,7 +57,7 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
 
         <?php }?>  
         
-</table>
+</table><br><br>
 <table>
            <center><h2>Recomendaciones</h2></center>
             <tr>
