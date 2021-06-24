@@ -18,31 +18,64 @@
     }
   }
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Registrarme</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<!DOCTYPE HTML>    
+    <html>    
+    <head>    
+    <meta utfset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="assets/css/preguntas.css">
     <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
+    <title>Registrarme a Yachayqay Test</title>
+    
 
-    <?php require 'partials/header.php' ?>
 
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
 
-    <h1>Registrarme</h1>
-    <span>o <a href="login.php">Iniciar Sesion</a></span>
+    </head>    
+    <body >
+    <div class="body">
+        <div class="container">
+            <header class="img">
+                <img src="assets/css/UC-Horizontal-White 1.png">
+            </header>
+  
+            <form class="conti" method="post" >
 
-    <form action="signup.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
-      <input name="confirm_password" type="password" placeholder="Confirm Password">
-      <input type="submit" value="Submit">
-    </form>
+            <h1> Yachayqay Test </h1>
 
-  </body>
+
+            <?php if(!empty($message)): ?>
+              <p> <?= $message ?></p>
+            <?php endif; ?>
+
+            <h2>Registrarme</h2>
+            <span>o <a href="login.php">Iniciar Sesion</a></span>
+
+            <form action="signup.php" method="POST">
+              <input name="email" type="text" placeholder="Registre su Email" maxlength="27">
+              <input name="password" type="password" placeholder="Ingrese su contraseña">
+              <input type="submit" value="Registrarme">
+            </form>
+
+   
+            </form>
+          
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

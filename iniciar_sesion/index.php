@@ -1,45 +1,86 @@
 <?php
-  session_start();
+    session_start();
 
-  require 'database.php';
+    require 'database.php';
 
-  if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
-    $records->bindParam(':id', $_SESSION['user_id']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+    if (isset($_SESSION['user_id'])) {
+      $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
+      $records->bindParam(':id', $_SESSION['user_id']);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
 
-    $user = null;
+      $user = null;
 
-    if (count($results) > 0) {
-      $user = $results;
+      if (count($results) > 0) {
+        $user = $results;
+      }
     }
-  }
 ?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Bienvenido a Yachayqay Test</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <?php require 'partials/header.php' ?>
 
-    <?php if(!empty($user)): ?>
-      <br> Bienvenido. <?= $user['email']; ?>
-      <br>Inicio satisfactoriamente
-      <a href="logout.php">
-        Salir
-      </a>
-    <?php else: ?>
-      <h1>Porfavor Inicie Sesión o Registrese</h1>
+<!DOCTYPE HTML>    
+    <html>    
+    <head>    
+    <meta utfset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="assets/css/preguntas.css">
+    <title>Inicio Yachayqay Test</title>
+    
 
-      <a href="login.php">Iniciar Sesión
-      </a> o
-      <a href="signup.php">Registrarme</a>
-    <?php endif; ?>
-  </body>
+
+
+    </head>    
+    <body >
+    <div class="body">
+        <div class="container">
+            <header class="img">
+                <img src="assets/css/UC-Horizontal-White 1.png">
+            </header>
+
+  
+  
+            <form class="conti" method="post" >
+            
+
+
+            <h1> Yachayqay Test </h1>
+
+         
+            <?php if(!empty($user)): ?>
+              <br> Bienvenido. <?= $user['email']; ?>
+              <br>Inicio satisfactoriamente
+              <a href="logout.php">
+                Salir
+              </a>
+            <?php else: ?>
+              <h2>Porfavor</h2>
+
+              <h2><a href="login.php">Iniciar Sesión  </a> o
+              <a href="signup.php">Registrarme </a></h2>
+            <?php endif; ?>
+
+
+
+            
+   
+            </form>
+          
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
