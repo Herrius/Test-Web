@@ -1,4 +1,5 @@
-<?php
+<?php error_reporting(0); ?>
+    <?php
 
     $connect =mysqli_connect('localhost','root','','test');
 
