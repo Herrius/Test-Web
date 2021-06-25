@@ -1,4 +1,3 @@
-<?php error_reporting(0); ?>
    <?php
     $conexion=mysqli_connect ('localhost','root','','test');
  
