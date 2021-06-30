@@ -1,3 +1,4 @@
+<?php error_reporting(0); ?>
    <?php
     $conexion=mysqli_connect ('localhost','root','','test');
  
@@ -69,7 +70,7 @@
                 
                 
                 
-                <a href="exel.php" class="btn_imprimir" type="button" value="" style="position: relative;display: block;height: 50px;width: 120px;border-radius: 50px;text-transform: uppercase;background-color: transparent;color: black;font-size: 18px;overflow: hidden;transition: all 500ms ease;border: 2px solid black;margin-bottom: 20px;z-index: 0;font-weight: 700;cursor: pointer;text-align: center;font-size: 0.7rem;padding: 0.5rem 1rem;text-decoration: none;float:left" >Descargar exel</a>
+                <a href="exel.php?codigo=<?php echo $codestudiante?>" class="btn_imprimir" type="button" value="" style="position: relative;display: block;height: 50px;width: 120px;border-radius: 50px;text-transform: uppercase;background-color: transparent;color: black;font-size: 18px;overflow: hidden;transition: all 500ms ease;border: 2px solid black;margin-bottom: 20px;z-index: 0;font-weight: 700;cursor: pointer;text-align: center;font-size: 0.7rem;padding: 0.5rem 1rem;text-decoration: none;float:left" >Descargar exel</a>
                 <a href="inf/Estilos_Aprendizaje.pdf" download="EstilosdeAprendizaje.pdf" class="btn_imprimir" type="button" value="" style="position: relative;display: block;height: 50px;width: 120px;border-radius: 50px;text-transform: uppercase;background-color: transparent;color: black;font-size: 18px;overflow: hidden;transition: all 500ms ease;border: 2px solid black;margin-bottom: 20px;z-index: 0;font-weight: 700;cursor: pointer;text-align: center;font-size: 0.7rem;padding: 0.5rem 1rem;text-decoration: none;float:right" >Descargar pdf</a>
             </div>            
         </div> 
