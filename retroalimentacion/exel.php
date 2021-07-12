@@ -17,11 +17,12 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
         <th>Aprendizaje Secuencial</th>
         <th>Aprendizaje Global</th>
     </tr>
-    
+    <tr></tr>
     <?php
         $conexion=mysqli_connect ('localhost','root','','test');
         $resultado=$_GET['codigo'];
         $sql="CALL SP_MOSTRAR_RESULTADO('$resultado')";
+    
         $result=mysqli_query($conexion,$sql);
         if ($fila=mysqli_fetch_array($result)){
             $codestudiante=$fila['codestudiante'];
