@@ -1,4 +1,4 @@
-<?php error_reporting(0); ?>
+<?php error_reporting(-1); ?>
 <?php
 header("Content-Type: application/xls");
 header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
@@ -23,14 +23,14 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
         $resultado=$_GET['codigo'];
         $sql="CALL SP_MOSTRAR_RESULTADO('$resultado')";
         $result=mysqli_query($conexion,$sql);
-        while ($fila=mysqli_fetch_array($result)){
-
+        if ($fila=mysqli_fetch_array($result)){
+            $codestudiante=$fila['codestudiante'];
             $nivelactref=$fila['nivelactref'];
             $nivelsenint=$fila['nivelsenint'];
             $nivelvisver=$fila['nivelvisver'];
             $nivelsecglo=$fila['nivelsecglo'];
 
-            $activoreflexivo=100-$nivelactref; 
+           $activoreflexivo=100-$nivelactref; 
 
             $sensorialintuitivo=100-$nivelsenint;
 
@@ -41,17 +41,17 @@ header("Content-Disposition:attachment; filename=Estilo_Aprendizaje.xls");
 
             ?>
            
-           <center><h2>Alumno <?php echo $fila[1] ?><br><br></h2></center>
+           <center><h2>Alumno <?php echo $codestudiante ?><br><br></h2></center>
             <tr></tr>
             <tr>
-              <td style="text-align: center;color:blue"><?php echo $activoreflexivo;?>%</td>
-              <td style="text-align: center;color:blue"><?php echo $fila[2] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $activoreflexivo;?>50%</td>
+              <td style="text-align: center;color:blue"><?php echo $nivelactref; ?>%</td>  
               <td style="text-align: center;color:blue"><?php echo $sensorialintuitivo;?>%</td>
-              <td style="text-align: center;color:blue"><?php echo $fila[3] ?>%</td> 
+              <td style="text-align: center;color:blue"><?php echo $nivelsenint; ?>%</td> 
               <td style="text-align: center;color:blue"><?php echo $visualverbal;?>%</td>  
-              <td style="text-align: center;color:blue"><?php echo $fila[4] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $nivelvisver; ?>%</td>  
               <td style="text-align: center;color:blue"><?php echo $secuencialglobal;?>%</td>    
-              <td style="text-align: center;color:blue"><?php echo $fila[5] ?>%</td>  
+              <td style="text-align: center;color:blue"><?php echo $nivelsecgl-1; ?>%</td>  
             </tr>
             
 
