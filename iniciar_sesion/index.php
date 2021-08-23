@@ -27,26 +27,16 @@
     <link rel="stylesheet" href="assets/css/preguntas.css">
     <title>Inicio Yachayqay Test</title>
     
-
-
-
     </head>    
     <body >
     <div class="body">
-        <div class="container">
+        <div class="contenedor">
             <header class="img">
                 <img src="assets/css/UC-Horizontal-White 1.png">
-            </header>
-
-  
-  
+            </header> 
             <form class="conti" method="post" >
-            
-
-
-            <h1> Yachayqay Test </h1>
-
-         
+          
+            <h1> Yachayqay Test </h1>         
             <?php if(!empty($user)): ?>
               <br> Bienvenido. <?= $user['email']; ?>
               <br>Inicio satisfactoriamente
@@ -58,17 +48,10 @@
 
               <h2><a href="login.php">Iniciar Sesión  </a> o
               <a href="signup.php">Registrarme </a></h2>
-            <?php endif; ?>
-
-
-
-            
-   
-            </form>
-          
+            <?php endif; ?>  
+            </form>          
             </div>
-        </div>
-    </div>
+        </div>    
 </body>
 
 </html>

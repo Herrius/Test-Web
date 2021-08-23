@@ -14,7 +14,7 @@
 }
 body{
     height: 100vh;
-    background-image: url("../imagenes/questions.jpg");
+    background-image: url("../imagenes/questions.png");
     background: linear-gradient(90deg, #e63947cb 0%, #cd1f1fc7 22.17%, #c13584c7 49.41%, #7a00c6cb 81.28%);
     opacity: 1;
     font-family: "Comic Sans MS,Arial,Verdana";
@@ -28,7 +28,7 @@ header {
 .conti {
     display: flex;
     flex-direction: column;
-    width: 40rem;
+    width: 52rem;
     background-color: white;
     border: none;
     color: black;
@@ -45,7 +45,7 @@ header {
 
 }
 .img{
-    width: 39rem;
+    width: 51rem;
     padding: 00.5rem;
 }
 .img img{

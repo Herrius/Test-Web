@@ -35,7 +35,7 @@
     </head>    
     <body >
     <div class="body">
-        <div class="container">
+        <div class="contenedor">
             <header class="img">
                 <img src="assets/css/UC-Horizontal-White 1.png">
             </header>
