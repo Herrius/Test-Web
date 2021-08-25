@@ -46,8 +46,8 @@
             <?php else: ?>
               <h2>Porfavor</h2>
 
-              <h2><a href="login.php">Iniciar Sesión  </a> o
-              <a href="signup.php">Registrarme </a></h2>
+              <h2><a href="signup.php" style="text-decoration: none;">Registrarme </a> y
+              <a  href="login.php" style="text-decoration: none;" >Iniciar Sesión  </a></h2>
             <?php endif; ?>  
             </form>          
             </div>

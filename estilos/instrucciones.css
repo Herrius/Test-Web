@@ -125,7 +125,7 @@ body, .contenedor{
 .instrucciones{
     display: flex;
     flex-direction: column;
-    margin:2rem 0;
+    margin:2rem;
 }
 .espacio{
     margin-left: 1rem;
