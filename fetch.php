@@ -120,7 +120,7 @@
             <!-- para capturar los datos se necesita de un form con method post -->
             <form class="conti" method="post" 
             action="<?php if($next<=45){print 'fetch.php?idpregunta='.$next.'&codigo='. $codigo;}else{print 'retroalimentacion/menu_Resultados.php?codigo='.$codigo;}?>" >
-            <h3 align="right" style="color:grey" >Pregunta&nbsp;<?php echo  $idpregunta;?> de 44&nbsp;&nbsp;</h3>
+            <h3 style="color:grey" >Pregunta&nbsp;<?php echo  $idpregunta;?> de 44&nbsp;&nbsp;</h3>
             <h1> Yachayqay Test </h1>
             
             <!--  Mostramos datos para paginación -->

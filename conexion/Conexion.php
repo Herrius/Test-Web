@@ -1,7 +1,7 @@
 <?php
 $servidor="mysql:dbname=test;host=127.0.0.1";
-$usuario="root";
-$password="";
+$usuario="test";
+$password="test";
 
 /*este parámetro permite si no hay error se conecte directamente a la base de datos*/
 try{

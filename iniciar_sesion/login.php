@@ -18,7 +18,7 @@
 
       if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $email=$_POST['email'];
-        header("Location: /Test/fetch.php?idpregunta=1&codigo=$email");
+        header("Location: /fetch.php?idpregunta=1&codigo=$email");
       } else {
         $message = 'Lo sentimos ingreso mal la contraseña';
       }
