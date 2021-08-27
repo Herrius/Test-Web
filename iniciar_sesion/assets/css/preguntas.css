@@ -120,13 +120,7 @@ body {
         width: 19rem;
         margin: 1rem 0;
     }
-    .contenido{
-        flex-direction: column;
-    }
-    .contenedor_texto{
-      text-align: center;
-      padding: 0;
-    }
+
     html{
         font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
