@@ -107,6 +107,16 @@ div:nth-child(2){
   .divisor{
     display: flex;
     flex-direction: column;
+   }}
+@media screen and (max-width: 980px){
+  #contenedor{
+      width: 90%;
+  }
+  #contenido{
+      width: 60%;
+  }
+  #barra_lateral{
+      width:30%;
   }
 
 }
