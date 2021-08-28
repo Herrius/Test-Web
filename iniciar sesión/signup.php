@@ -35,14 +35,14 @@
     </head>    
     <body >
     <div class="body">
-        <div class="contenedor">
+           <div class="contenedor">
             <header class="img">
                 <img src="assets/css/UC-Horizontal-White 1.png">
             </header>
   
             <form class="conti" method="post" >
 
-            <h1> Yachayqay Test </h1>
+            <h1 style="color: #560e99";>  YACHAYQAY TEST </h1>
 
 
             <?php if(!empty($message)): ?>
@@ -67,8 +67,6 @@
 </body>
 
 </html>
-
-
 
 
 
