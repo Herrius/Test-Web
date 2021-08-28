@@ -18,7 +18,7 @@
 
       if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $email=$_POST['email'];
-        header("Location: /fetch.php?idpregunta=1&codigo=$email");
+        header("Location: /test/fetch.php?idpregunta=1&codigo=$email");
       } else {
         $message = 'Lo sentimos ingreso mal la contraseña';
       }
@@ -51,7 +51,7 @@
   
             <form class="conti" method="post" >
             
-            <h1> Yachayqay Test </h1>
+            <h1 style="color: #560e99";>  YACHAYQAY TEST </h1>
 
             <?php if(!empty($message)): ?>
                 <p> <?= $message ?></p>
