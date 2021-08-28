@@ -36,7 +36,7 @@
             </header> 
             <form class="conti" method="post" >
           
-            <h1> Yachayqay Test </h1>         
+            <h1> YACHAYQAY TEST </h1>         
             <?php if(!empty($user)): ?>
               <br> Bienvenido. <?= $user['email']; ?>
               <br>Inicio satisfactoriamente
@@ -45,9 +45,9 @@
               </a>
             <?php else: ?>
               <h2>Porfavor</h2>
+              <FONT SIZE=5><b><a href="signup.php" style="text-decoration: none;">Registrarme </a></b>    y 
+              <FONT SIZE=5><b><a  href="login.php" style="text-decoration: none;" >Iniciar Sesión  </a> </b>  <br><br>
 
-              <h2><a href="signup.php" style="text-decoration: none;">Registrarme </a> y
-              <a  href="login.php" style="text-decoration: none;" >Iniciar Sesión  </a></h2>
             <?php endif; ?>  
             </form>          
             </div>
