@@ -103,10 +103,7 @@ div:nth-child(2){
   font-size: 1.5rem;
 }
 
-@media all and (max-width:768px){
-  .divisor{
-    display: flex;
-    flex-direction: column;
+@media all and (max-width:768px)visorisplay: flexx-direction: column;
    }}
 @media screen and (max-width: 980px){
   #contenedor{
