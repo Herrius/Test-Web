@@ -8,7 +8,8 @@
     <head>
        <meta charset="utf-8">
         <title>Resultados</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;gt;>
+       <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
         <link href="styles/style_menu.css" rel="stylesheet" type="text/css">
     </head>
