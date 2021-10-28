@@ -15,12 +15,15 @@
         while($fila=$resultado->fetch_assoc()){
             $salida.="<div class='container'>
             <br>
+             <a href='resultados.php?nrc=".$fila['NRC']."'>
              <div class='card'>
                 <img src='img/unnamed.jpg'>
                 <h4>".$fila['NRC']."</h4>
-                <p>".$fila['Nombreasignatura']."</p>
-                <button type='button' class='btn btn-dark'data-toggle='modal' data-target='#modal1' width='50%'>Reporte</button>                  
-             </div><br>
+                <p>".utf8_encode($fila['Nombreasignatura'])."</p>
+                <button type='button' class='btn btn-dark'>Reporte</button>                  
+             </div>
+             </a>
+             <br>
          </div><br>";
         }
     }else{

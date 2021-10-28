@@ -15,6 +15,7 @@
         while($fila=$resultado->fetch_assoc()){
             $salida.="<div class='container'>
             <br>
+             <a href='reporteIndividual.php?codestudiante=".$fila['codestudiante']."'>
              <div class='card'>
                 <img src='img/unnamed.jpg'>
                 <h4>".$fila['codestudiante']."</h4>

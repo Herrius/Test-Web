@@ -6,89 +6,54 @@
     <head>
         <meta charset="utf-8">
         <title>Yachayqay Test</title>
+        <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
         <link rel="stylesheet" href="style_procesar.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
         <script type="text/javascript" src="busqueda_individual.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     
-    <body> <br>
-        <center><br><a href="javascript:history.go(-1)" style="color: black;text-decoration: none" class="button">Atrás</a></center> 
-       <h1 class="title" style="font-family: 'Lobster', cursive;">RESULTADOS POR ALUMNOS</h1>
-        <form>
-        <input type="text" class="form-control" id="caja_busqueda_individual" placeholder="Buscar..." style="width:40%; margin: auto">
-        </form>
-        <section id="busquedaindividual">
-        </section>
-        <div class="container">
-            <div class="modal fade" tabindex="-1" id="modal1">
-                <div class="modal-dialog modal-lg modal-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Reporte de estudiante</h3>
-                            <button class="close" data-dismiss='modal'>&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-lg-4" id="graficoradar">
-                                <canvas id="gradar2" width="400" height="400"></canvas>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-info">Recomendaciones</button>
-                            <button type="button" class="btn btn-info">Descargar Reporte</button>
-                        </div>
-                    </div>
-                </div>
+    <body> 
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title yachay">Yachayqay</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <!-- Navigation. We hide it in small screens. -->
+               
             </div>
+        </header>
+        <!-- menu -->
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Yachaqay</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="Estadisticas_Generales_Alumnado.php">Resultados grupales</a>
+                <a class="mdl-navigation__link" href="Estadisticas_Individuales.php">Resultados individuales</a>
+            
+            </nav>
         </div>
-    </body><br>   
+        <main class="mdl-layout__content">
+            <div class="page-content mdl-grid--stretch">
+                <h1 class="title display-4 ">RESULTADOS POR ALUMNOS</h1>   
+            </div>
+            <div class="mdl-grid--stretch ">
+                    <form class="text-center">
+                        <div class="mdl-textfield mdl-js-textfield ">
+                            <input class="mdl-textfield__input text-15" type="text" id="caja_busqueda_individual">
+                            <label class="mdl-textfield__label text-15" for="sample1">Buscar...</label>
+                        </div>
+                    </form>
+                    <section id="busquedaindividual">
+                    </section>
+                </div>
+        </main>
+        
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    </body>  
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script>
-    var estilos=[];
-    var nestudiantes =[];
-    $.getJSON("procesar.php",
-    function(data){
-        data.forEach(element=>{
-            estilos.push(element["estilo"])
-        });
-        data.forEach(element=>{
-            nestudiantes.push(element["nstudiantes"])
-        });
-        }
-    );
-    var ctx = document.getElementById(gradar2);
-          var myChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: estilos,
-                datasets: [{
-                    label: 'Numero de estudiantes',
-                    data: nestudiantes,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(153, 88, 215, 1)',
-                        'rgba(245, 15, 234, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(153, 88, 215, 1)',
-                        'rgba(245, 15, 234, 1)'
-                    ],
-                    borderWidth: 3
-                }]
-            },
-          });
-</script>
