@@ -15,7 +15,7 @@
         while($fila=$resultado->fetch_assoc()){
             $salida.="<div class='container'>
             <br>
-             <a href='resultados.php?nrc=".$fila['NRC']."'>
+             <a href='reporteGrupal.php?nrc=".$fila['NRC']."'>
              <div class='card'>
                 <img src='img/unnamed.jpg'>
                 <h4>".$fila['NRC']."</h4>

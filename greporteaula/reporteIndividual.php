@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado individual</title>
+    <link href="../assets/js-plugin-circliful-master/dist/main.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -45,8 +46,8 @@
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">Yachaqay</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="individual.html">Resultados individuales</a>
-                <a class="mdl-navigation__link" href="grupal.html">Resultados grupales</a>
+                <a class="mdl-navigation__link" href="Estadisticas_Individuales.php">Resultados individuales</a>
+                <a class="mdl-navigation__link" href="Estadisticas_Generales_Alumnado.php">Resultados grupales</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -82,130 +83,115 @@
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span><?php  print($obtenerTest['nivelactref'])?>%</span>
+                                    Activo
                                 </div>
                                     <p>Aprenden trabajando con otros</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0"><?php  print($obtenerTest['nivelactref'])?>%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="activo" data-percent="<?php  print($obtenerTest['nivelactref'])?>" 
+                                    
+                                    data-text="Activo">
+                                    </div>
                             </div>
                         </li>
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Reflexivo</span>
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprenden estando solo</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="reflexivo" data-percent="<?php  print(abs($obtenerTest['nivelactref']-100))?>" 
+                                   
+                                    data-text="Relexivo">
+                                    </div>
                             </div>
                         </li>
                         
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp ">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Sensorial</span>
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprenden observando y analizando</p>
             
                             
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="sensorial" data-percent="<?php  print($obtenerTest['nivelsenint']);?>" 
+                                   
+                                   data-text="Sensorial">
+                                   </div>
                             </div>
                         </li>
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp ">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Intuitivo</span>
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprenden mejor deduciendo</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="intuitivo" data-percent="<?php print(abs($obtenerTest['nivelsenint']-100));?>" 
+                                   
+                                   data-text="intuitivo">
+                                   </div>
                             </div>
                         </li>
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp ">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Visual</span>
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprenden mediante diagramas y demostraciones</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="visual" data-percent="<?php  print($obtenerTest['nivelvisver']);?>" 
+                                   
+                                   data-text="Visual">
+                                   </div>
                             </div>
                         </li>
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp ">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Verbal</span>
+                                    
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprenden mejor escuchando, hablando y discutiendo</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="verbal" data-percent="<?php  print(abs($obtenerTest['nivelsenint']-100));?>" 
+                                   
+                                   data-text="Verbal">
+                                   </div>
                             </div>
                         </li>
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp ">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Global</span>
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprende todo de manera superficial para luego especializarse</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="global" data-percent="<?php  print($obtenerTest['nivelsecglo']);?>" 
+                                   
+                                   data-text="Global">
+                                   </div>
                             </div>
                         </li>
                         <li class="splide__slide">
                             <div class="demo-charts mdl-color--white mdl-shadow--2dp ">
                                 <div class="student-score">
-                                    <span>Activo</span>
-                                    <span>12.5%</span>
+                                    <span>Secuencial</span>
                                 </div>
-                                    <p>Aprenden trabajando con otros</p>
+                                    <p>Aprenden cuando la informacion se presenta de forma proresiva</p>
               
                                
-                                <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart note-score">
-                                    <use xlink:href="#piechart" mask="url(#piemask)" />
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.2" fill="#000" text-anchor="middle" dy="0">82%</text>
-                                    <text x="0.5" y="0.5" font-family="Roboto" font-size="0.08" fill="#000" text-anchor="middle" dy="0.15">ACTIVO</text>
-                                </svg>
+                                    <div id="secuencial" data-percent="<?php  print(abs($obtenerTest['nivelsecglo']-100));?>" 
+                                   
+                                   data-text="Secuencial">
+                                   </div>
                             </div>
                         </li>
                        
@@ -218,33 +204,15 @@
                 </div>
                 
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
-                <defs>
-                  <mask id="piemask" maskContentUnits="objectBoundingBox">
-                    <circle cx=0.5 cy=0.5 r=0.49 fill="white" />
-                    <circle cx=0.5 cy=0.5 r=0.40 fill="black" />
-                  </mask>
-                  <g id="piechart">
-                    <circle cx=0.5 cy=0.5 r=0.5 />
-                    <path d="M 0.5 0.5 0.5 0 A 0.5 0.5 0 0 1 0.95 0.1 z" stroke="none" fill="rgba(255, 255, 255, 0.75)" />
-                  </g>
-                </defs>
-              </svg>
+          
+         
+
+               
         </main>
     </div>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script >
-        
-    document.addEventListener( 'DOMContentLoaded', function () {
-        new Splide( '#carrusel',{
-            type   : 'no-loop',
-            perPage: 4,
-            perMove: 4,
-            pagination:false,
-        } ).mount();
-    } );
-
-    </script>
+    <script src="../assets/js-plugin-circliful-master/dist/circliful.js"></script>
+    <script src="resultados.js"></script>
 </body>
 
 </html>
