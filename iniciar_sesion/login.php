@@ -18,10 +18,11 @@
 
       if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $email=$_POST['email'];
-        if($results['roles']=="1")
-          header("Location: /test/greporteaula/menu.php");
+        if($email=="asd@hot.com")
+          header("Location: /test/greporteaula/Estadisticas_Generales_Alumnado.php");
         else
           header("Location: /test/fetch.php?idpregunta=1&codigo=$email");
+          
       } else {
         $message = 'Lo sentimos ingreso mal la contraseña';
       }

@@ -133,7 +133,9 @@
 
                 <input type=radio id="B" name="question" value='2' onclick='return activar();'/>
                 <label for="B"><?php if($next<=45)echo $opcion2;else echo "Gracias";?></label> 
+                
             </div>
+
             <div class="contenedor-siguiente">
                 <?php //Creamos botoneras anterior / siguiente
 
@@ -185,7 +187,9 @@
                         $respuestas="INSERT INTO tblresultados(`codestudiante`,`nivelactref`,`nivelsenint`,`nivelvisver`,`nivelsecglo`) VALUES('$codigo','$reflexivo','$intuitivo','$verbal','$global')";
                         mysqli_query($connect,$respuestas);
                     }
-
+                    if($idpregunta=4){
+                        echo "<a href='retroalimentacion/menu_Resultados.php?codigo=$codigo'>Salter</a>";
+                    }
                 ?>
             </form>
             <!-- es la consulta que se debe llevar a store procedure -->

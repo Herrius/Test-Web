@@ -1,7 +1,6 @@
 <?php error_reporting(0); ?>
    <?php
     $conexion=mysqli_connect ('localhost','root','','test');
- 
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,6 +20,7 @@
             if($row=mysqli_fetch_array($result)){
             $codestudiante=$row['codestudiante'];
             // datos
+            var_dump($row);
             $nivelactref=$row['nivelactref'];
             $nivelsenint=$row['nivelsenint'];
             $nivelvisver=$row['nivelvisver'];
