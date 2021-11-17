@@ -10,9 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;gt;>
        <link rel="preconnect" href="https://fonts.gstatic.com">
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+       
     </head>
-    <body>
+    <body><br><br><br><br><br><br>
         <?php
+            
             $resultado=$_GET['codigo'];
             $sql="CALL SP_MOSTRAR_RESULTADO('$resultado')";   
             $result=mysqli_query($conexion,$sql);
@@ -38,7 +41,7 @@
         ?>         
 
         <div>
-                <p class="h1 text-center"><?php echo $codestudiante;?></p>
+                <p class="h1 text-center"><?php echo $codestudiante;?></p><br>
                 <div class="container  ">
                     <div class="row ">
                         <div class="col-12 row ">
@@ -48,19 +51,19 @@
                                     <div class="progress" style="height: 3rem;">
                                         <div class="progress-bar text-dark" role="progressbar" style="width: <?php echo $activoreflexivo;?>%;" aria-valuenow="<?php echo $activoreflexivo;?>" aria-valuemin="0" aria-valuemax="100"><?php echo $activoreflexivo;?>%</div>
                                     </div>
-                                </a>
-                                
+                                </a>                                
                             </div>
+                            
                             <div class="col-6  d-flex align-items-center ">
-                                 <a href="Int_Reflexivo.php" class="flex-grow-1">
+                                <a href="Int_Reflexivo.php" class="flex-grow-1">
                                     <div class="progress" style="height: 3rem;">
                                         <div class="progress-bar text-dark" role="progressbar" style="width: <?php echo $nivelactref;?>%;" aria-valuenow="<?php echo $nivelactref;?>" aria-valuemin="0" aria-valuemax="100"><?php echo $nivelactref;?>%</div>
                                     </div>
                                 </a>
                                 <p class="fs-1 flex-grow-1 ml-2 mb-0 ">Reflexivo</p>
-                            </div>
-                            
+                            </div>                     
                         </div>
+
                         <div class="col-12 row mt-2">
                             <div class="col-6 d-flex align-items-center">
                                 <p class="fs-1 flex-grow-1 mb-0 text-right mr-2" >Sensorial</p>
@@ -71,6 +74,7 @@
                                 </a>
                                 
                             </div>
+                            
                             <div class="col-6 d-flex align-items-center">
                                 
                                 <a href="Int_Intuitiva.php" class="flex-grow-1">
@@ -125,15 +129,14 @@
                             
                         </div>
             
-                    </div>
-                   
+                    </div>                  
 
                 </div>
                 <div class="container">
                     <a href="exel.php?codigo=<?php echo $codestudiante?>" class="btn_imprimir" type="button" value="" style="position: relative;display: block;height: 50px;width: 120px;border-radius: 50px;text-transform: uppercase;background-color: transparent;color: black;font-size: 18px;overflow: hidden;transition: all 500ms ease;border: 2px solid black;margin-bottom: 20px;z-index: 0;font-weight: 700;cursor: pointer;text-align: center;font-size: 0.7rem;padding: 0.5rem 1rem;text-decoration: none;float:left" >Descargar exel</a>
                     <a href="inf/Estilos_Aprendizaje.pdf" download="EstilosdeAprendizaje.pdf" class="btn_imprimir" type="button" value="" style="position: relative;display: block;height: 50px;width: 120px;border-radius: 50px;text-transform: uppercase;background-color: transparent;color: black;font-size: 18px;overflow: hidden;transition: all 500ms ease;border: 2px solid black;margin-bottom: 20px;z-index: 0;font-weight: 700;cursor: pointer;text-align: center;font-size: 0.7rem;padding: 0.5rem 1rem;text-decoration: none;float:right" >Descargar pdf</a>
                 </div>
-            </div>            
+            </div>          
          <?php
         } 
         ?>
